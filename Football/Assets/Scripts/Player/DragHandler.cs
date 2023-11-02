@@ -3,74 +3,99 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+namespace FootBall
 {
-
-    #region Fields
-
-    [Header("Component Settings")]
-    public PlayerData PlayerDataSO;
-    [SerializeField]
-    private ArrowLineRenderer _arrowLineRenderer;
-    [SerializeField]
-    private CircleColorChanger _circleColor;
-    [SerializeField]
-    private CircleScaler _circleScaler;
-    [SerializeField]
-    private Vector3 _initialMousePosition;
-    [SerializeField]
-    private Vector3 _currentMousePosition;
-
-    [SerializeField]
-    private float _lengthOfMouseDrag;
-    #endregion
-
-    #region Interface methods
-    public void OnBeginDrag(PointerEventData eventData)
+    public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        if (GameManager.Instance.State.Equals(GameState.Targeting))
+
+        #region Fields
+
+        [Header("Component Settings")]
+        public PlayerData PlayerDataSO;
+        [SerializeField]
+        private ArrowLineRenderer _arrowLineRenderer;
+        [SerializeField]
+        private CircleColorChanger _circleColor;
+        [SerializeField]
+        private CircleScaler _circleScaler;
+        [SerializeField]
+        private Vector3 _initialMousePosition;
+        [SerializeField]
+        private Vector3 _currentMousePosition;
+
+
+        public float LengthOfMouseDrag;
+        #endregion
+
+        #region Interface methods
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            GetInitialDataOnBeginDrag();
-            _arrowLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);            
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            {
+                GetInitialDataOnBeginDrag();
+                _arrowLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
+            }
         }
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (GameManager.Instance.State.Equals(GameState.Targeting))
+        public void OnDrag(PointerEventData eventData)
         {
-            GetCurrentDataOnDrag();
-            _circleScaler.ScaleCircle(_lengthOfMouseDrag);
-            _circleColor.ChangeColor(_lengthOfMouseDrag);
-            _arrowLineRenderer.DrawLine(_lengthOfMouseDrag, PlayerDataSO.MaxCircleSize, _initialMousePosition, _currentMousePosition);            
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            {
+                GetCurrentDataOnDrag();
+                _circleScaler.ScaleCircle(LengthOfMouseDrag * 2);
+                _circleColor.ChangeColor(LengthOfMouseDrag * 2);
+                _arrowLineRenderer.DrawLine(LengthOfMouseDrag, PlayerDataSO.MaxCircleSize, _initialMousePosition, _currentMousePosition);
+            }
         }
-    }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {       
-        ResetInitialCondition();
-    }
-    #endregion
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (LengthOfMouseDrag > PlayerDataSO.minimumKickForce)
+            {
+                GameManager.Instance.UpdateGameState(GameState.BallMoving);
+            }
+            else
+            {
+                GameManager.Instance.UpdateGameState(GameState.Idle);
+                _arrowLineRenderer.RemoveLine();
+            }
+            ResetInitialCondition();
+        }
+        #endregion
 
-    #region Methods
-    void GetInitialDataOnBeginDrag()
-    {
-        _initialMousePosition = transform.position;
-    }
+        #region Methods
+        void GetInitialDataOnBeginDrag()
+        {
+            _initialMousePosition = transform.position;
+        }
 
-    void GetCurrentDataOnDrag()
-    {
-        _currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _currentMousePosition = new Vector3(_currentMousePosition.x, _currentMousePosition.y, 0);
-        _lengthOfMouseDrag = Vector3.Distance(_initialMousePosition, _currentMousePosition) * 2;
-    }
+        void GetCurrentDataOnDrag()
+        {
+            LengthOfMouseDrag = 0;
+            _currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _currentMousePosition = new Vector3(_currentMousePosition.x, _currentMousePosition.y, 0);
+            LengthOfMouseDrag = Vector3.Distance(_initialMousePosition, _currentMousePosition);
+            if (LengthOfMouseDrag >= PlayerDataSO.MaxCircleSize)
+            {
+                LengthOfMouseDrag = PlayerDataSO.MaxCircleSize;
+            }
+        }
 
-    void ResetInitialCondition()
-    {
-        _circleScaler.ResetCircleInitialScale();
-        _arrowLineRenderer.RemoveLine();
+        void ResetInitialCondition()
+        {
+            _circleScaler.ResetCircleInitialScale();
+            _currentMousePosition = Vector3.zero;
+        }
+
+        public void ResetForIdle()
+        {
+            LengthOfMouseDrag = 0;
+        }
+        #endregion
+
+
     }
-    #endregion
 
 
 }
+

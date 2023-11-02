@@ -134,7 +134,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sprites_kits_pucks_0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 333
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0442692fba8fd4f93c6d89ce0f61da
+      internalID: 1013471763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 295
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde95b16b8e6a104e8dce2d2d49e9139
+      internalID: 2035955791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 257
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c8fb137de1ea94d8d52c23086a0c03
+      internalID: -884892621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_3
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 219
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827e1f9a90e9c1a479c8157655bda6d5
+      internalID: -741096697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 181
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7719b64f43c909646a85054c34cdcae3
+      internalID: 1372730450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_5
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 143
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4568c139394804fa79f2d668ee3d47
+      internalID: -844159158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites_kits_pucks_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 105
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413abe3c641b25644b786b6b2c594657
+      internalID: 96197332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +292,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprites_kits_pucks_0: 1013471763
+      sprites_kits_pucks_1: 2035955791
+      sprites_kits_pucks_2: -884892621
+      sprites_kits_pucks_3: -741096697
+      sprites_kits_pucks_4: 1372730450
+      sprites_kits_pucks_5: -844159158
+      sprites_kits_pucks_6: 96197332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

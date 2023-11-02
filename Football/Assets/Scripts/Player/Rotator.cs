@@ -2,27 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+
+namespace FootBall
 {
-
-    public PlayerData PlayerDataSO;
-   
-   
-
-
-    // Update is called once per frame
-    void Update()
+    public class Rotator : MonoBehaviour
     {
-        RotateCircle();
+
+        public PlayerData PlayerDataSO;
+        private SpriteRenderer _spriteRenderer;
 
 
-    }
-
-    void RotateCircle()
-    {
-        if (GameManager.Instance.State.Equals(GameState.Targeting))
+        private void Awake()
         {
-            transform.Rotate(PlayerDataSO.RotatingAngle * Time.deltaTime * PlayerDataSO.RotatorSpeed);
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer.enabled = false;
+        }
+
+        void Update()
+        {
+            RotateCircle();
+        }
+
+
+        void RotateCircle()
+        {
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            {
+                _spriteRenderer.enabled = true;
+                transform.Rotate(PlayerDataSO.RotatingAngle * Time.deltaTime * PlayerDataSO.RotatorSpeed);
+            }
+            else
+            {
+                _spriteRenderer.enabled = false;
+            }
         }
     }
+
 }
+

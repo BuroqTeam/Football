@@ -2,28 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleScaler : MonoBehaviour
+
+namespace FootBall
 {
-
-    public PlayerData PlayerDataSO;
-
-
-    public void ScaleCircle(float lengthOfMouseDrag)
+    public class CircleScaler : MonoBehaviour
     {
-        if (lengthOfMouseDrag > 0 && lengthOfMouseDrag <= PlayerDataSO.MaxCircleSize)
+
+        public PlayerData PlayerDataSO;
+        private SpriteRenderer _spriteRenderer;
+
+
+        #region MonoBehaviour CallBacks
+        private void Awake()
         {
-            Vector3 temp = transform.localScale;
-            temp.x = lengthOfMouseDrag / 0.6f;
-            temp.y = lengthOfMouseDrag / 0.6f;
-            temp.z = 0;
-            transform.localScale = temp;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        #endregion
+
+        #region Methods
+        public void ScaleCircle(float lengthOfMouseDrag)
+        {
+            if (lengthOfMouseDrag > 0 && lengthOfMouseDrag <= PlayerDataSO.MaxCircleSize)
+            {
+                Vector3 temp = transform.localScale;
+                temp.x = lengthOfMouseDrag / _spriteRenderer.sprite.bounds.size.x;
+                temp.y = lengthOfMouseDrag / _spriteRenderer.sprite.bounds.size.y;
+                temp.z = 0;
+                transform.localScale = temp;
+            }
+        }
+
+        public void ResetCircleInitialScale()
+        {
+            transform.localScale = new Vector3(0, 0, 0);
+        }
+        #endregion
+
     }
 
-    public void ResetCircleInitialScale()
-    {
-        transform.localScale = new Vector3(0, 0, 0);
-    }
-
-    
 }
+

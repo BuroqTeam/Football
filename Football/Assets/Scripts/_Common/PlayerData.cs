@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
 
-    [Header("Circle Color Settings")]
+    [Header("Circle Settings")]
     public float RotatorSpeed;
     public Vector3 RotatingAngle;
 
-    [Header("Circle Settings")]
+    [Header("Circle Color Settings")]
     [Range(0, 2.0f)]
     public float GrrenGap;
     [Range(0, 2.0f)]
@@ -20,9 +20,11 @@ public class PlayerData : ScriptableObject
     [Range(1, 2.0f)]
     public float MaxCircleSize;
 
+    public float minimumKickForce;
 
 
 
 
-   
+
+
 }
