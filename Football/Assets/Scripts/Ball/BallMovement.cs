@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallMovement : MonoBehaviour
+namespace FootBall
 {
-
-
-
-    public void Move()
+    public class BallMovement : MonoBehaviour
     {
-        
+
+
+
+        public void Move()
+        {
+
+        }
+
     }
-    
+
 }
+

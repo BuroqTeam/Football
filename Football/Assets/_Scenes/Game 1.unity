@@ -597,6 +597,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &440861303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 262938713649820609, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
+  m_PrefabInstance: {fileID: 526876534278570451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4b52a4dcd635849b77edd8a9511b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477136926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,8 +1324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743ba040c6a903744b313d0409e43ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
+  CurrentState: 0
   StartSO: {fileID: 11400000, guid: b6d45a6633509ef45baa094edc67ef26, type: 2}
+  IdleSO: {fileID: 11400000, guid: 8c0b9bfc7de584040901180dace245e6, type: 2}
 --- !u!1 &1545184437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545184439}
   - component: {fileID: 1545184438}
+  - component: {fileID: 1545184440}
   m_Layer: 0
   m_Name: Game Event Manager
   m_TagString: Untagged
@@ -1375,6 +1388,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545184440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545184437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c344a02bfcfc444aaa6a4764b7c771d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8c0b9bfc7de584040901180dace245e6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 440861303}
+        m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+        m_MethodName: ResetForIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1650388549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191288409816339510, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6191288409816339510, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1700,15 +1741,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760194140989344913, guid: 59a2cc40678f2c04a922fd2709a35a85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7336064307528764140, guid: 59a2cc40678f2c04a922fd2709a35a85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7336064307528764140, guid: 59a2cc40678f2c04a922fd2709a35a85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1135
+      value: 1.1365
       objectReference: {fileID: 0}
     - target: {fileID: 7336064307528764140, guid: 59a2cc40678f2c04a922fd2709a35a85, type: 3}
       propertyPath: m_LocalPosition.z

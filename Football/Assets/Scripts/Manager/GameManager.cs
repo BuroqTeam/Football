@@ -4,55 +4,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+namespace FootBall
 {
-
-    public static GameManager Instance;
-    public GameState State;
-    public GameEvent StartSO;
-
-    public static event Action<GameState> OnGameStateChanged;
-
-    
-
-    private void Awake()
+    public class GameManager : MonoBehaviour
     {
-        Instance = this;
-    }
 
-    private void Start()
-    {
-        UpdateGameState(GameState.Targeting);
-        
-    }
+        #region Fields
+        public static GameManager Instance;
+        public GameState CurrentState;
+        public GameEvent StartSO;
+        public GameEvent IdleSO;
+        #endregion
 
 
-    public void UpdateGameState(GameState newState)
-    {
-        State = newState;
-        switch (newState)
+        #region MonoBehaviour CallBacks
+        private void Awake()
         {
-            case GameState.Start:
-                StartSO.Raise();
-                break;
-            case GameState.Targeting:
-                break;          
-            case GameState.BallMoving:
-                break;
-            case GameState.Goal:
-                break;
-            case GameState.Finish:
-                break;
+            Instance = this;
         }
-        OnGameStateChanged?.Invoke(newState);
+
+        private void Start()
+        {
+            UpdateGameState(GameState.Idle);
+        }
+        #endregion
+
+
+        #region Methods
+        public void UpdateGameState(GameState newState)
+        {
+            CurrentState = newState;
+            switch (newState)
+            {
+                case GameState.Start:
+                    StartSO.Raise();
+                    break;
+                case GameState.Idle:
+                    IdleSO.Raise();
+                    break;
+                case GameState.Targeting:
+                    break;
+                case GameState.BallMoving:
+                    break;
+                case GameState.Goal:
+                    break;
+                case GameState.Finish:
+                    break;
+            }
+        }
+        #endregion
+
+
+
+
+
+
     }
-
-   
-
-
-
-
 
 }
+
 
 

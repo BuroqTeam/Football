@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702cfae22306b3e4ca6aa473cdd76984, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: dac4113c91936574d87119e3720625e6, type: 3}
+  m_Name: IdleSO
   m_EditorClassIdentifier: 
-  RotatorSpeed: 10
-  RotatingAngle: {x: 0, y: 0, z: -10}
-  GrrenGap: 1.2
-  YellowGap: 1.5
-  AlphaTransparency: 0.3
-  MaxCircleSize: 1.8
-  minimumKickForce: 0.6
