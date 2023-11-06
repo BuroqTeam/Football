@@ -52,6 +52,7 @@ namespace FootBall
                 Vector3 startPoint = _lineRenderer.GetPosition(0);
                 Vector3 endPoint = _lineRenderer.GetPosition(_lineRenderer.positionCount - 1);
                 Vector3 direction = endPoint - startPoint;
+                direction = new Vector3(direction.x, direction.y, 0);
                 direction.Normalize();
                 _lineRenderer.positionCount = 0;
                 return direction;

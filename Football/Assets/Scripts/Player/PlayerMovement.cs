@@ -9,8 +9,8 @@ namespace FootBall
     {        
         private Rigidbody2D _rigidbody2D;
         private DragHandler _dragHandler;
-        private ArrowLineRenderer _arrowLineRenderer;
-
+        private ArrowLineRenderer _arrowLineRenderer;       
+        
 
 
         #region MonoBehaviour CallBacks
@@ -35,15 +35,28 @@ namespace FootBall
             {
                 _rigidbody2D.AddForce(_arrowLineRenderer.GetDirection() * _dragHandler.LengthOfMouseDrag * 1000);
                 StartCoroutine(CheckVelocity());
+                
             }
         }
+
+        public bool IsBallUnMove()
+        {
+            if (_rigidbody2D.velocity == Vector2.zero)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }            
+        }
+       
 
         IEnumerator CheckVelocity()
         {
             yield return new WaitForSeconds(0.5f);
-            if (_rigidbody2D.velocity.Equals(Vector2.zero))
-            {
-                Debug.Log("Not Move");
+            if (IsBallUnMove())
+            {                
                 GameManager.Instance.UpdateGameState(GameState.Idle);
             }
         }

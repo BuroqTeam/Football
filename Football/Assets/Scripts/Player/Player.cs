@@ -1,24 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace FootBall
 {
-    public class Player : MonoBehaviour, IPointerEnterHandler
+    public class Player : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
 
-        private string _name;
-        private int _number;
+        public PlayerInfo PlayerInfoSO;
 
-      
+        private TMP_Text _playerInfo;
+
+        private void Awake()
+        {
+            _playerInfo = transform.GetChild(3).GetComponent<TMP_Text>();
+            _playerInfo.text = PlayerInfoSO.Name + " " + PlayerInfoSO.Number;
+            _playerInfo.GetComponent<MeshRenderer>().sortingOrder = 100;
+        }
+
+
+
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-
+            _playerInfo.enabled = true;
         }
 
+       
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _playerInfo.enabled = false;
+        }
+
+
       
+
+        
     }
 
 }
