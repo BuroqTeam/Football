@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b22126d757be80458415dd27050259b, type: 3}
+  m_Name: SettingsButtonSO
+  m_EditorClassIdentifier: 
+  PlainSp: {fileID: 21300000, guid: fae050e3fc556874e9118c797bf94ef8, type: 3}
+  FramedSp: {fileID: 21300000, guid: 84ebfce6280cc91409c688600ab8ed1d, type: 3}
+  NormalColor: {r: 0.5803922, g: 0.70980394, b: 0.24313726, a: 1}
+  LightColor: {r: 0.8313726, g: 0.90196085, b: 0.6627451, a: 1}
+  NomalFontSize: 18
+  BiggerFontSize: 22
