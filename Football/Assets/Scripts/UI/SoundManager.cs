@@ -10,8 +10,23 @@ namespace FootBall
 
         private void Awake()
         {
-            GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(SoundKeySO.KeyForSound);
-            transform.GetChild(0).GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(SoundKeySO.KeyForMusic);
+            if (PlayerPrefs.GetFloat(SoundKeySO.KeyForSound).Equals(0))
+            {
+                GetComponent<AudioSource>().volume = 1;
+            }
+            else
+            {
+                GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(SoundKeySO.KeyForSound);
+            }
+
+            if (PlayerPrefs.GetFloat(SoundKeySO.KeyForMusic).Equals(0))
+            {
+                GetComponent<AudioSource>().volume = 0.1f;
+            }
+            else
+            {
+                transform.GetChild(0).GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat(SoundKeySO.KeyForMusic);
+            }
         }
 
     }
