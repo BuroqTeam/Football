@@ -18,4 +18,4 @@ MonoBehaviour:
   YellowGap: 1.5
   AlphaTransparency: 0.3
   MaxCircleSize: 1.8
-  minimumKickForce: 0.6
+  minimumKickForce: 0.3

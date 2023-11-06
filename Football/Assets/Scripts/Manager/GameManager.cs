@@ -14,6 +14,7 @@ namespace FootBall
         public GameState CurrentState;
         public GameEvent StartSO;
         public GameEvent IdleSO;
+        public GameEvent BallMovingSO;
         #endregion
 
 
@@ -45,6 +46,7 @@ namespace FootBall
                 case GameState.Targeting:
                     break;
                 case GameState.BallMoving:
+                    BallMovingSO.Raise();
                     break;
                 case GameState.Goal:
                     break;

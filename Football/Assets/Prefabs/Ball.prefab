@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7336064307528764140}
   - component: {fileID: 2722179217607797758}
   - component: {fileID: 8274812848166802733}
+  - component: {fileID: 7307497222372200141}
   - component: {fileID: 3342757791060396932}
   - component: {fileID: 2056445494569286470}
+  - component: {fileID: 441546094788143432}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4760194140989344913}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.1135, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 0
@@ -121,7 +123,42 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.32
+--- !u!58 &7307497222372200141
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760194140989344913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.31999996
 --- !u!50 &3342757791060396932
 Rigidbody2D:
   serializedVersion: 4
@@ -148,7 +185,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2056445494569286470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +198,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0c534857fd6954ea3fc2be56128b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &441546094788143432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760194140989344913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc4fade726349048873f957d33cab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BallColisionSO: {fileID: 11400000, guid: 6bfe679f5160ed94394f4b380d9ff43b, type: 2}
