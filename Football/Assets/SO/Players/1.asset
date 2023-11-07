@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   ClubName: Bunyodkor
-  Name: Alimov
-  Number: 88
+  Name: Name
+  Number: Number

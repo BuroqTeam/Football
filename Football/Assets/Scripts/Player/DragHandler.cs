@@ -22,6 +22,12 @@ namespace FootBall
         private Vector3 _initialMousePosition;
         [SerializeField]
         private Vector3 _currentMousePosition;
+        private Player _player;
+
+        private void Awake()
+        {
+            _player = GetComponent<Player>();
+        }
 
 
         public float LengthOfMouseDrag;
@@ -30,7 +36,7 @@ namespace FootBall
         #region Interface methods
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _player.IsEnable)
             {
                 GetInitialDataOnBeginDrag();
                 _arrowLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
@@ -39,7 +45,7 @@ namespace FootBall
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _player.IsEnable)
             {
                 GetCurrentDataOnDrag();
                 _circleScaler.ScaleCircle(LengthOfMouseDrag * 2);
