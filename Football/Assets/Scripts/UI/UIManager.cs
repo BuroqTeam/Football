@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace FootBall
 {
@@ -13,6 +13,11 @@ namespace FootBall
         {
             Application.Quit();
             
+        }
+
+        public void LoadGame()
+        {
+            SceneManager.LoadScene("Game 1");
         }
 
 
