@@ -20,6 +20,11 @@ namespace FootBall
             SceneManager.LoadScene("Game 1");
         }
 
+        public void ExitGame()
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
 
         
     }
