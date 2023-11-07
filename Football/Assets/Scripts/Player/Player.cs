@@ -10,8 +10,8 @@ namespace FootBall
     {
 
         public PlayerInfo PlayerInfoSO;
-
         private TMP_Text _playerInfo;
+        public bool IsEnable;
 
         private void Awake()
         {

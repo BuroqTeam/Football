@@ -26,7 +26,7 @@ namespace FootBall
 
         void RotateCircle()
         {
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && transform.parent.GetComponent<Player>().IsEnable)
             {
                 _spriteRenderer.enabled = true;
                 transform.Rotate(PlayerDataSO.RotatingAngle * Time.deltaTime * PlayerDataSO.RotatorSpeed);
