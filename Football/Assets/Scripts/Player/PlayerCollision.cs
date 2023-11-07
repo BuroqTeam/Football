@@ -4,22 +4,21 @@ using UnityEngine;
 
 namespace FootBall
 {
-    public class BallCollision : MonoBehaviour
+    public class PlayerCollision : MonoBehaviour
     {
-        public GameEvent BallColisionSO;
+        private Rigidbody2D _rigidbody2D;
         private Vector3 _lastVelocity;
 
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {            
-            BallColisionSO.Raise();
-            
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
 
         private void FixedUpdate()
         {
-            _lastVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+            _lastVelocity = _rigidbody2D.velocity;
         }
 
 
@@ -29,12 +28,8 @@ namespace FootBall
             {
                 var speed = _lastVelocity.magnitude;
                 var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
-                gameObject.GetComponent<Rigidbody2D>().velocity = direction * Mathf.Max(speed, 0);
+                _rigidbody2D.velocity = direction * Mathf.Max(speed, 0);
             }
         }
-
     }
-
 }
-
-
