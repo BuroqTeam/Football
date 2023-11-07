@@ -28,19 +28,6 @@ namespace FootBall
         {
             KickBall();
         }
-
-
-        //private void OnCollisionEnter2D(Collision2D collision)
-        //{
-        //    if (collision.gameObject.name == "Line")
-        //    {
-        //        Debug.Log("Wall Collision = " + _rigidbody2D.velocity);
-        //        Vector3 oppositeDirection = collision.contacts[0].normal;
-        //        //float rotationAngle = Vector3.SignedAngle(oppositeDirection, _rigidbody2D.velocity, Vector3.up);
-        //        _rigidbody2D.velocity = Vector3.Reflect(_rigidbody2D.velocity, oppositeDirection);
-        //        Debug.Log("Wall Collision = " + _rigidbody2D.velocity);
-        //    }            
-        //}
         #endregion
 
 
@@ -49,9 +36,7 @@ namespace FootBall
         {
             if (GameManager.Instance.CurrentState.Equals(GameState.BallMoving))
             {
-                Vector3 direction = _arrowLineRenderer.GetDirection();
-                direction.Normalize();
-                _rigidbody2D.AddForce(/*_arrowLineRenderer.GetDirection()*/ direction * _dragHandler.LengthOfMouseDrag * 1000);
+                _rigidbody2D.AddForce(_arrowLineRenderer.GetDirection() * _dragHandler.LengthOfMouseDrag * 1000);
                 ChangePlayerDrag();
                 StartCoroutine(CheckVelocity());                
             }
@@ -89,14 +74,13 @@ namespace FootBall
             
             if (speed < _minimalSpeed && speed != 0)
             {
-                _rigidbody2D.drag += 1f;
+                _rigidbody2D.drag += 2f;
                 //Debug.Log("_rigidbody2D.drag = " + _rigidbody2D.drag);
             }
             //else if (speed == 0)
             //{
             //    _rigidbody2D.drag = _initialDrag;
-            //}
-            
+            //}            
         }
 
         #endregion
