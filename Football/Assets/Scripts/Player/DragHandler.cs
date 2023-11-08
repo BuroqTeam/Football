@@ -56,7 +56,7 @@ namespace FootBall
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (LengthOfMouseDrag > PlayerDataSO.minimumKickForce)
+            if (LengthOfMouseDrag > PlayerDataSO.minimumKickForce && _player.IsEnable)
             {
                 GameManager.Instance.UpdateGameState(GameState.BallMoving);
             }
