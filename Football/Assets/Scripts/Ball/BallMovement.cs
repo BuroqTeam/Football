@@ -33,6 +33,13 @@ namespace FootBall
             }
         }
 
+
+        public void ReturnToCenter()
+        {
+            gameObject.transform.position = new Vector2(0, 0);
+        }
+
+
     }
 
 }

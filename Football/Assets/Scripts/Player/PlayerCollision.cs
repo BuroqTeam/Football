@@ -24,7 +24,7 @@ namespace FootBall
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.name == "Line" || collision.gameObject.name == "Line_Test")
+            if (collision.gameObject.CompareTag("Line"))
             {
                 var speed = _lastVelocity.magnitude;
                 var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
