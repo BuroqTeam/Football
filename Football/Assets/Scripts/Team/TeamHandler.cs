@@ -66,11 +66,20 @@ namespace FootBall
         }
 
 
-
+        public void ResetTeamPos() // Call after goal. 
+        {
+            ResetPlayerPos(_firstPlayers, FirstTeamSO);
+            ResetPlayerPos(_secondPlayers, SecondTeamSO);
+        }
         
 
-
-
+        void ResetPlayerPos(List<GameObject> listOfObject, TeamPosition teamPosition) // Reset all players pos.
+        {
+            for (int i = 0; i < listOfObject.Count; i++)
+            {
+                listOfObject[i].transform.position = teamPosition.PlayerPositions[i];
+            }
+        }
 
 
     }
