@@ -171,6 +171,7 @@ MonoBehaviour:
   PlayerPrefabOther: {fileID: 3399165166815184496, guid: 3fd350608a3e96a489335518aebed10c, type: 3}
   FirstTeamSO: {fileID: 11400000, guid: 091d8132f0344eb40b148c9d1dfe8f1d, type: 2}
   SecondTeamSO: {fileID: 11400000, guid: a9b9e3b3a4ee1f64ea1c0a557ccd7ff6, type: 2}
+  timer: 0
 --- !u!1 &98107742
 GameObject:
   m_ObjectHideFlags: 0
@@ -6481,6 +6482,10 @@ PrefabInstance:
     - target: {fileID: 3399165166815184496, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399165166815184496, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6191288409816339510, guid: 2bfe58399aa2b0a4a872493f1fb4de86, type: 3}
       propertyPath: m_LocalPosition.x

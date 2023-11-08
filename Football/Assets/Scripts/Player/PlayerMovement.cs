@@ -10,9 +10,12 @@ namespace FootBall
         private Rigidbody2D _rigidbody2D;
         private DragHandler _dragHandler;
         private ArrowLineRenderer _arrowLineRenderer;
-                
+        [HideInInspector] public TeamHandler TeamHand;
+
         private float _initialDrag;
         private float _minimalSpeed = 0.35f;
+        [HideInInspector] public bool IsPlayerMoving;
+
 
         #region MonoBehaviour CallBacks
         private void Awake()
@@ -36,6 +39,7 @@ namespace FootBall
         {
             if (GameManager.Instance.CurrentState.Equals(GameState.BallMoving))
             {
+                IsPlayerMoving = true;
                 _rigidbody2D.AddForce(_arrowLineRenderer.GetDirection() * _dragHandler.LengthOfMouseDrag * 1000);
                 ChangePlayerDrag();
                 StartCoroutine(CheckVelocity());                
@@ -53,15 +57,17 @@ namespace FootBall
                 return false;
             }            
         }
-       
 
+        
         IEnumerator CheckVelocity()
         {
             yield return new WaitForSeconds(0.5f);
-            if (IsBallUnMove())
-            {                
-                GameManager.Instance.UpdateGameState(GameState.Idle);
+            if (IsBallUnMove() && IsPlayerMoving)
+            {
+                //GameManager.Instance.UpdateGameState(GameState.Idle);
                 _rigidbody2D.drag = _initialDrag;
+                IsPlayerMoving = false;
+                TeamHand.PlayerChecker();
             }
         }
 
