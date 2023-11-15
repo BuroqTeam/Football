@@ -17,7 +17,7 @@ namespace FootBall
 
         public void LoadGame()
         {
-            SceneManager.LoadScene("Game 1");
+            SceneManager.LoadScene("Game");
         }
 
         public void ExitGame()
