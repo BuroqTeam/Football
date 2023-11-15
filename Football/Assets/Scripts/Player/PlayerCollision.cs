@@ -6,6 +6,7 @@ namespace FootBall
 {
     public class PlayerCollision : MonoBehaviour
     {
+        public GameEvent PlayerCollisionSO;
         private Rigidbody2D _rigidbody2D;
         private Vector3 _lastVelocity;
 
@@ -30,6 +31,13 @@ namespace FootBall
                 var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
                 _rigidbody2D.velocity = direction * Mathf.Max(speed, 0);
             }
+            else if (collision.gameObject.CompareTag("Player") /*&& gameObject.GetComponent<PlayerMovement>().IsPlayerMoving*/)
+            {
+                PlayerCollisionSO.Raise();
+                Debug.Log(222 + " ");
+            }
         }
+
+        
     }
 }

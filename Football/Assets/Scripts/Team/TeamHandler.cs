@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace FootBall
@@ -15,8 +16,10 @@ namespace FootBall
         private List<GameObject> _secondPlayers = new List<GameObject>();
 
         private int _turn;
+        [SerializeField] private TMP_Text _firstTeamText;
+        [SerializeField] private TMP_Text _secondTeamText;
 
-        public float timer = 0f;
+        float timer = 0f;
         float interval = 15f;
 
         private void Awake()
@@ -33,17 +36,34 @@ namespace FootBall
 
         private void FixedUpdate()
         {
-            //if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
-            //{
-            //    timer += Time.deltaTime;
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            {
+                timer += Time.deltaTime;                
 
-            //    if (timer >= interval)
-            //    {
-            //        SwitchTurn();
+                int minutes = Mathf.FloorToInt(timer / 60);
+                int seconds = (int)interval - Mathf.FloorToInt(timer % 60);
 
-            //        timer = 0f;
-            //    }
-            //}
+                if (_turn % 2 != 0)
+                {
+                    _firstTeamText.transform.parent.gameObject.SetActive(true);
+                    _secondTeamText.transform.parent.gameObject.SetActive(false);
+
+                    _firstTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                }
+                else
+                {
+                    _firstTeamText.transform.parent.gameObject.SetActive(false);
+                    _secondTeamText.transform.parent.gameObject.SetActive(true);
+
+                    _secondTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                }
+
+                if (timer >= interval)
+                {
+                    SwitchTurn();
+                    timer = 0f;
+                }
+            }
             //else
             //{
             //    timer = 0;
@@ -75,10 +95,9 @@ namespace FootBall
             {
                 EnablePlayers(_firstPlayers, false);
                 EnablePlayers(_secondPlayers, true);
-
             }
-            Debug.Log("Switch Turn");
         }
+
 
         void EnablePlayers(List<GameObject> players, bool val)
         {

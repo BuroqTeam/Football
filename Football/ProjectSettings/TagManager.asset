@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Line
+  - Ball
   layers:
   - Default
   - TransparentFX

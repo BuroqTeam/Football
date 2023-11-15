@@ -14,7 +14,7 @@ namespace FootBall
 
         private float _initialDrag;
         private float _minimalSpeed = 0.35f;
-        [HideInInspector] public bool IsPlayerMoving;
+        /*[HideInInspector]*/ public bool IsPlayerMoving;
 
 
         #region MonoBehaviour CallBacks

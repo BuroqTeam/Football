@@ -6,8 +6,12 @@ namespace FootBall
 {
     public class ScoreBoard : MonoBehaviour
     {
-        
-    }
+        public int LeftTeamScore;
+        public int RightTeamScore;
 
+
+
+
+    }
 }
 
