@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
 
     public void SwitchTeamKick()
     {
+        Debug.Log("Run every changes");
         if (_currentTimer.Value <= 0)
         {
             Debug.Log("Switch Team and Reset _currentTimer");

@@ -1,3 +1,4 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,10 @@ namespace FootBall
 {
     public class BallMovement : MonoBehaviour
     {
-
+        [SerializeField]
+        private IntReference _teamOneScore;
+        [SerializeField]
+        private IntReference _teamTwoScore;
         private Rigidbody2D _rigidbody;
 
         private void Awake()
@@ -15,11 +19,22 @@ namespace FootBall
         }
 
 
-
-        public void Move()
+        public void MakeGoal()
         {
+            if (transform.position.x > 0)
+            {
+                _teamOneScore.Value++;
+                Debug.Log("_teamOneScore");
+            }
+            else
+            {
+                _teamTwoScore.Value++;
+                Debug.Log("_teamTwoScore");
+            }
 
+            StopBall();
         }
+
 
         void OnCollisionEnter2D(Collision2D collision)
         {
@@ -37,6 +52,12 @@ namespace FootBall
         public void ReturnToCenter()
         {
             gameObject.transform.position = new Vector2(0, 0);
+        }
+
+
+        void StopBall()
+        {
+            // Ballni harakatdan to'xtatadi.
         }
 
 
