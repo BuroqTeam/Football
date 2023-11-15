@@ -1,3 +1,4 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,7 +11,7 @@ namespace FootBall
         #region Fields
         public TMP_Text ScoreText;
         public TMP_Text ScoreAnimText;
-
+                
         #endregion
 
 
@@ -19,6 +20,7 @@ namespace FootBall
         {
 
         }
+        
 
 
         public void GoalAnim()
@@ -36,6 +38,8 @@ namespace FootBall
             // Fade panel
             // Reset all thing
         }
+
+
 
     }
 }

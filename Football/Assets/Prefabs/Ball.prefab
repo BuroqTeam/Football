@@ -198,6 +198,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0c534857fd6954ea3fc2be56128b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teamOneScore:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 858b014b1240f534aa4b635d99bfd5fe, type: 2}
+  _teamTwoScore:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 913284aaf50df9848b7aca68acf45e06, type: 2}
 --- !u!114 &441546094788143432
 MonoBehaviour:
   m_ObjectHideFlags: 0
