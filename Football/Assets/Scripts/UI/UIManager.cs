@@ -15,15 +15,12 @@ namespace FootBall
             
         }
 
-        public void LoadGame()
+        public void LoadScene(string sceneName)
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(sceneName);
         }
 
-        public void ExitGame()
-        {
-            SceneManager.LoadScene("Menu");
-        }
+       
 
 
         
