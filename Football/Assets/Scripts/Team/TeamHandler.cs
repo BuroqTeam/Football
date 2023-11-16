@@ -67,6 +67,8 @@ namespace FootBall
             //else
             //{
             //    timer = 0;
+            //    _firstTeamText.transform.parent.gameObject.SetActive(false);
+            //    _secondTeamText.transform.parent.gameObject.SetActive(false);
             //}
         }
 

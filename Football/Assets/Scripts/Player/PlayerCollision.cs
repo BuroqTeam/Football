@@ -34,7 +34,6 @@ namespace FootBall
             else if (collision.gameObject.CompareTag("Player") /*&& gameObject.GetComponent<PlayerMovement>().IsPlayerMoving*/)
             {
                 PlayerCollisionSO.Raise();
-                Debug.Log(222 + " ");
             }
         }
 
