@@ -13,7 +13,7 @@ namespace FootBall
         private void OnTriggerEnter2D(Collider2D collision)
         {            
             BallColisionSO.Raise();
-            
+            //Debug.Log("Trigger is work = " + collision.name + " " + gameObject.transform.position);
         }
 
 

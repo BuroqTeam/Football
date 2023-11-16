@@ -10,6 +10,7 @@ namespace FootBall
     public class GoalKeeper : MonoBehaviour
     {
         #region Fields
+        public GameEvent GoalEvent;
         //[SerializeField] private GoalAction _goalAction;
         //public enum DoorState { Left, Right};
         //public DoorState CurrentState;
@@ -20,17 +21,20 @@ namespace FootBall
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            //Debug.Log(collision.name + " " + collision.isTrigger);
             if (collision.gameObject.CompareTag("Ball"))
             {
-                collision.GetComponent<BallMovement>().MakeGoal();
-                Debug.Log("Ishladi");
+                if (collision.GetType() == typeof(BoxCollider2D))
+                {
+                    collision.GetComponent<BallMovement>().MakeGoal();
+                    GoalEvent.Raise();
+                }
             }
-
-            //Ball ball = collision.GetComponent<Ball>();
-            //if (ball != null)
-            //{
-            //    ball.MakeGoal();
-            //}            
+            else if (collision.CompareTag("Player"))
+            {
+                // Out player from GoalKeeper area.
+            }
+                       
         }
 
                 

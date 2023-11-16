@@ -38,6 +38,7 @@ namespace FootBall
             switch (newState)
             {
                 case GameState.Start:
+                    Debug.Log("Start");
                     StartSO.Raise();
                     break;
                 case GameState.Idle:

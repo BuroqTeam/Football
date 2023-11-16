@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace FootBall
 {
+    // Bu script nomini BallMovement emas Ball Physics deb qayta nomlash kerak.
     public class BallMovement : MonoBehaviour
     {
         [SerializeField]
@@ -21,15 +22,16 @@ namespace FootBall
 
         public void MakeGoal()
         {
+            //GameManager.Instance.UpdateGameState(GameState.Goal);
             if (transform.position.x > 0)
             {
                 _teamOneScore.Value++;
-                Debug.Log("_teamOneScore");
+                //Debug.Log("_teamOneScore");
             }
             else
             {
                 _teamTwoScore.Value++;
-                Debug.Log("_teamTwoScore");
+                //Debug.Log("_teamTwoScore");
             }
 
             StopBall();
@@ -44,7 +46,7 @@ namespace FootBall
 
                 // For example, to stop the ball from moving further in the direction of the collision:
                 _rigidbody.velocity = _rigidbody.velocity / 2;
-                
+                //Debug.Log("++");
             }
         }
 
@@ -58,6 +60,16 @@ namespace FootBall
         void StopBall()
         {
             // Ballni harakatdan to'xtatadi.
+            //_rigidbody.velocity = Vector2.zero;
+            StartCoroutine(StopBallMove());
+        }
+
+
+        IEnumerator StopBallMove()
+        {
+            _rigidbody.velocity = _rigidbody.velocity / 2;
+            yield return new WaitForSeconds(0.07f);
+            _rigidbody.velocity = Vector3.zero;
         }
 
 
