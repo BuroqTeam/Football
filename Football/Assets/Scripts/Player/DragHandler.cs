@@ -15,6 +15,8 @@ namespace FootBall
         [SerializeField]
         private ArrowLineRenderer _arrowLineRenderer;
         [SerializeField]
+        private SniperLineRenderer _sniperLineRenderer;
+        [SerializeField]
         private CircleColorChanger _circleColor;
         [SerializeField]
         private CircleScaler _circleScaler;
@@ -40,6 +42,7 @@ namespace FootBall
             {
                 GetInitialDataOnBeginDrag();
                 _arrowLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
+                _sniperLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
             }
         }
 
@@ -51,6 +54,7 @@ namespace FootBall
                 _circleScaler.ScaleCircle(LengthOfMouseDrag * 2);
                 _circleColor.ChangeColor(LengthOfMouseDrag * 2);
                 _arrowLineRenderer.DrawLine(LengthOfMouseDrag, PlayerDataSO.MaxCircleSize, _initialMousePosition, _currentMousePosition);
+                _sniperLineRenderer.DrawSniperLine();
             }
         }
 
@@ -64,6 +68,7 @@ namespace FootBall
             {
                 GameManager.Instance.UpdateGameState(GameState.Idle);
                 _arrowLineRenderer.RemoveLine();
+                _sniperLineRenderer.RemoveLine();
             }
             ResetInitialCondition();
         }

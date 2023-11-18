@@ -10,12 +10,7 @@ namespace FootBall
     public class GoalKeeper : MonoBehaviour
     {
         #region Fields
-        public GameEvent GoalEvent;
-        //[SerializeField] private GoalAction _goalAction;
-        //public enum DoorState { Left, Right};
-        //public DoorState CurrentState;
-        //public GameEvent PlayerDoorCollisionSO;
-        //public GameEvent BallDoorCollisionSO;
+        public GameEvent GoalEvent;        
         #endregion
 
 
