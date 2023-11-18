@@ -41,7 +41,7 @@ namespace FootBall
                 if (hit.collider.gameObject.name.Equals("Line_Test"))
                 {
                     lineTestHit = hit;
-                    Debug.Log(lineTestHit.point);
+                    //Debug.Log(lineTestHit.point);
 
                     _lineRenderer.SetPosition(1, lineTestHit.point);
                     break;
@@ -60,6 +60,7 @@ namespace FootBall
 
         public void RemoveLine()
         {
+            //Debug.Log("Working");
             _lineRenderer.positionCount = 0;
         }
 
