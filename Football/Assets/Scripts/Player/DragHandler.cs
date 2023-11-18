@@ -63,12 +63,12 @@ namespace FootBall
             if (LengthOfMouseDrag > PlayerDataSO.minimumKickForce && _player.IsEnable)
             {
                 GameManager.Instance.UpdateGameState(GameState.BallMoving);
+                _sniperLineRenderer.RemoveLine();
             }
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.Idle);
-                _arrowLineRenderer.RemoveLine();
-                _sniperLineRenderer.RemoveLine();
+                _arrowLineRenderer.RemoveLine();               
             }
             ResetInitialCondition();
         }
