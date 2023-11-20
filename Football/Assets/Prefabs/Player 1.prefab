@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcee779917f2d34a9ec988c71ea8b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentState: 0
   PlayerInfoSO: {fileID: 11400000, guid: 1ef539bfce25f1547a0919e9590741dc, type: 2}
   IsEnable: 0
 --- !u!114 &262938713649820609
@@ -608,7 +609,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.025026321
+        value: 0.07351875
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -620,8 +621,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.22352941, b: 0.22352941, a: 1}
+      key1: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -982,7 +983,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 573ece6bfc57fe34a85614bbfb4e7a93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1012,7 +1013,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.025026321
+        value: 0.050121304
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1055,7 +1056,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 90
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -1075,3 +1076,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dabdc0d65a9f74699548f18b141db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SniperValue: {fileID: 11400000, guid: 999a0236fb7c88543bb498446b8e3d89, type: 2}

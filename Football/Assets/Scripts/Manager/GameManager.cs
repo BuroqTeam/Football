@@ -26,7 +26,7 @@ namespace FootBall
 
         private void Start()
         {
-            UpdateGameState(GameState.Idle);
+            UpdateGameState(GameState.Start);
         }
         #endregion
 
@@ -38,10 +38,10 @@ namespace FootBall
             switch (newState)
             {
                 case GameState.Start:
-                    Debug.Log("Start");
                     StartSO.Raise();
+                    UpdateGameState(GameState.Idle);
                     break;
-                case GameState.Idle:
+                case GameState.Idle:                    
                     IdleSO.Raise();
                     break;
                 case GameState.Targeting:

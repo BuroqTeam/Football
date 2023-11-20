@@ -1,7 +1,9 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FootBall
 {
@@ -21,6 +23,9 @@ namespace FootBall
 
         float timer = 0f;
         float interval = 15f;
+        float zPos = -0.1f;
+
+        public IntVariable SniperValue;
 
         private void Awake()
         {
@@ -30,6 +35,7 @@ namespace FootBall
 
         private void Start()
         {
+            SniperValue.Value = 0;
             SwitchTurn();
         }
                 
@@ -79,7 +85,7 @@ namespace FootBall
             {
                 GameObject player = Instantiate(prefab);
                 player.GetComponent<PlayerMovement>().TeamHand = this;
-                player.transform.position = new Vector3(pos.x, pos.y, 0);
+                player.transform.position = new Vector3(pos.x, pos.y, zPos);
                 players.Add(player);
             }           
         }
@@ -155,7 +161,22 @@ namespace FootBall
         {
             for (int i = 0; i < listOfObject.Count; i++)
             {
-                listOfObject[i].transform.position = teamPosition.PlayerPositions[i];
+                Vector3 resetPos = teamPosition.PlayerPositions[i];
+                listOfObject[i].transform.position = new Vector3(resetPos.x, resetPos.y, zPos)/*teamPosition.PlayerPositions[i]*/;
+            }
+        }
+
+        
+        public void IncreaseSniperValue(Image enabledImage)
+        {
+            SniperValue.Value += 1;
+            if (enabledImage.enabled) 
+            {
+                enabledImage.enabled = false;
+            }
+            else if (!enabledImage.enabled)
+            {
+                enabledImage.enabled = true;
             }
         }
 

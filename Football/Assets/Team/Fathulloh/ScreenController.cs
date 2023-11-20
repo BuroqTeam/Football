@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class responsible for detect game scene horizontal or vertical.
+/// </summary>
 public class ScreenController : MonoBehaviour
 {
     public enum ScreenType {Horizontal, Vertical };
