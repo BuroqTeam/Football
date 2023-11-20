@@ -16,7 +16,6 @@ namespace FootBall
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            //Debug.Log(collision.name + " " + collision.isTrigger);
             if (collision.gameObject.CompareTag("Ball"))
             {
                 if (collision.GetType() == typeof(BoxCollider2D))

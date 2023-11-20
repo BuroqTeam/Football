@@ -29,8 +29,7 @@ namespace FootBall
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 directionOfSniper = (transform.position - mousePosition).normalized;
-
-                //Vector2 pointC = transform.position + directionOfSniper * 8;
+                                
                 //Vector3 pointC = _lineRenderer.GetPosition(0) + (_lineRenderer.GetPosition(0) - mousePosition).normalized * 10;
 
                 RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionOfSniper);
