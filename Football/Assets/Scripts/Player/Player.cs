@@ -8,6 +8,8 @@ namespace FootBall
 {
     public class Player : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public enum PlayerState {SimplePlayer, GoalKeeper};
+        public PlayerState CurrentState;
 
         public PlayerInfo PlayerInfoSO;
         private TMP_Text _playerInfo;

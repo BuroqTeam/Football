@@ -63,12 +63,11 @@ namespace FootBall
             if (LengthOfMouseDrag > PlayerDataSO.minimumKickForce && _player.IsEnable)
             {
                 GameManager.Instance.UpdateGameState(GameState.BallMoving);
-                _sniperLineRenderer.RemoveLine();
             }
             else
             {
                 GameManager.Instance.UpdateGameState(GameState.Idle);
-                _arrowLineRenderer.RemoveLine();               
+                _arrowLineRenderer.RemoveLine();
             }
             ResetInitialCondition();
         }
@@ -96,6 +95,8 @@ namespace FootBall
         {
             _circleScaler.ResetCircleInitialScale();
             _currentMousePosition = Vector3.zero;
+
+            _sniperLineRenderer.RemoveLine();
         }
 
         public void ResetForIdle()

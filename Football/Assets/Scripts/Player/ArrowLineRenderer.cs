@@ -13,7 +13,13 @@ namespace FootBall
         #region MonoBehaviour Callbacks
         private void Awake()
         {
-            _lineRenderer = GetComponent<LineRenderer>();
+            _lineRenderer = GetComponent<LineRenderer>();            
+        }
+
+
+        private void Start()
+        {
+            //ChangeLineColor();
         }
         #endregion
 
@@ -62,6 +68,15 @@ namespace FootBall
                 _lineRenderer.positionCount = 0;
                 return new Vector3();
             }
+        }
+
+
+        void ChangeLineColor()
+        {
+            Debug.Log("Work color change");
+            Material newMat = (_lineRenderer.material);
+            newMat.color = Color.red/*new Color(0.83f, 0.2f, 0.2f)*/;
+            _lineRenderer.material = newMat; 
         }
         #endregion
 
