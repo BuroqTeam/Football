@@ -1,3 +1,4 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,12 +26,46 @@ namespace FootBall
         [SerializeField]
         private Vector3 _currentMousePosition;
         private Player _player;
+        [HideInInspector] public bool _IsDragged = false;
+        public StringVariable GoalKeeperSO;
+
 
         private void Awake()
         {
-            _player = GetComponent<Player>();
+            _player = GetComponent<Player>();            
         }
 
+        private void Update()
+        {
+            if (!_player.IsEnable && _IsDragged) // This is work when time is over
+            {
+                _arrowLineRenderer.RemoveLine();
+                ResetInitialCondition();
+                _IsDragged = false;
+            }
+            
+
+            if (_player.IsGoalKeeperPlayer && _player.IsEnable)
+            {
+                if (_IsDragged)
+                {
+                    if (gameObject.transform.position.x > 0)
+                    {
+                        GoalKeeperSO.Value = ("right");
+                    }
+                    else if (gameObject.transform.position.x < 0)
+                    {
+                        GoalKeeperSO.Value = ("left");
+                    }
+                    //Debug.Log("1 gameObject name = " + gameObject.name);
+                }
+                else if (!_IsDragged)
+                {
+                    GoalKeeperSO.Value = ("null");
+                    //Debug.Log("2 gameObject name = " + gameObject.name);
+                }
+            }
+        }
 
         public float LengthOfMouseDrag;
         #endregion
@@ -40,6 +75,7 @@ namespace FootBall
         {
             if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _player.IsEnable)
             {
+                _IsDragged = true;
                 GetInitialDataOnBeginDrag();
                 _arrowLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
                 _sniperLineRenderer.SetFirstLineRendererPosition(_initialMousePosition);
@@ -70,6 +106,11 @@ namespace FootBall
                 _arrowLineRenderer.RemoveLine();
             }
             ResetInitialCondition();
+
+            if (_player.IsGoalKeeperPlayer)
+            {
+                GoalKeeperSO.Value = ("null");
+            }            
         }
         #endregion
 
@@ -96,6 +137,7 @@ namespace FootBall
             _circleScaler.ResetCircleInitialScale();
             _currentMousePosition = Vector3.zero;
 
+            _IsDragged = false;
             _sniperLineRenderer.RemoveLine();
         }
 
