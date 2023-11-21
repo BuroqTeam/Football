@@ -209,6 +209,7 @@ MonoBehaviour:
   CurrentState: 0
   PlayerInfoSO: {fileID: 11400000, guid: 1ef539bfce25f1547a0919e9590741dc, type: 2}
   IsEnable: 0
+  IsGoalKeeperPlayer: 0
 --- !u!114 &262938713649820609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,8 @@ MonoBehaviour:
   _circleScaler: {fileID: 491793111129593968}
   _initialMousePosition: {x: 0, y: 0, z: 0}
   _currentMousePosition: {x: 0, y: 0, z: 0}
+  _IsDragged: 0
+  GoalKeeperSO: {fileID: 11400000, guid: 7f60a9098b9774241b42df5a3d5d860d, type: 2}
   LengthOfMouseDrag: 0
 --- !u!114 &5164279597327737314
 MonoBehaviour:

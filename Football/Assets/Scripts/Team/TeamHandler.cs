@@ -14,8 +14,8 @@ namespace FootBall
         public TeamPosition FirstTeamSO;
         public TeamPosition SecondTeamSO;
 
-        private List<GameObject> _firstPlayers = new List<GameObject>();
-        private List<GameObject> _secondPlayers = new List<GameObject>();
+        [HideInInspector] public List<GameObject> _firstPlayers = new List<GameObject>();
+        [HideInInspector] public List<GameObject> _secondPlayers = new List<GameObject>();
 
         private int _turn;
         [SerializeField] private TMP_Text _firstTeamText;
