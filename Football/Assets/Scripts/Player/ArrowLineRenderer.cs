@@ -8,19 +8,16 @@ namespace FootBall
     {
 
         private LineRenderer _lineRenderer;
+        private GameObject _arrowObject;
 
 
         #region MonoBehaviour Callbacks
         private void Awake()
         {
-            _lineRenderer = GetComponent<LineRenderer>();            
+            _lineRenderer = GetComponent<LineRenderer>();
+            //_arrowObject = transform.GetChild(0).gameObject;
         }
-
-
-        private void Start()
-        {
-            //ChangeLineColor();
-        }
+        
         #endregion
 
 
@@ -37,7 +34,7 @@ namespace FootBall
                 float newY = startPoint.y + ratio * (endPoint.y - startPoint.y);
                 float newZ = startPoint.z;
                 _lineRenderer.SetPosition(1, new Vector3(newX, newY, newZ));
-            }
+            }            
         }
 
         public void SetFirstLineRendererPosition(Vector3 initialMousePosition)
@@ -71,12 +68,16 @@ namespace FootBall
         }
 
 
-        void ChangeLineColor()
+        void SetArrowPosition()
         {
-            Debug.Log("Work color change");
-            Material newMat = (_lineRenderer.material);
-            newMat.color = Color.red/*new Color(0.83f, 0.2f, 0.2f)*/;
-            _lineRenderer.material = newMat; 
+            if (_lineRenderer.positionCount == 2)
+            {
+                _arrowObject.transform.position = _lineRenderer.GetPosition(1);
+            }
+            else if (_lineRenderer.positionCount == 0)
+            {
+                _arrowObject.transform.position = new Vector2(0, 0);
+            }
         }
         #endregion
 

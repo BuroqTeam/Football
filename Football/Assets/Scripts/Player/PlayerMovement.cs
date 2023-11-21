@@ -40,7 +40,7 @@ namespace FootBall
             if (GameManager.Instance.CurrentState.Equals(GameState.BallMoving))
             {
                 IsPlayerMoving = true;
-                _rigidbody2D.AddForce(_arrowLineRenderer.GetDirection() * _dragHandler.LengthOfMouseDrag * 1000);
+                _rigidbody2D.AddForce(_arrowLineRenderer.GetDirection() * _dragHandler.LengthOfMouseDrag * 800);
                 ChangePlayerDrag();
                 StartCoroutine(CheckVelocity());                
             }
