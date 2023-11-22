@@ -28,10 +28,8 @@ namespace FootBall
             if (SniperValue.Value % 2 == 1)
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 directionOfSniper = (transform.position - mousePosition).normalized;
-                                
-                //Vector3 pointC = _lineRenderer.GetPosition(0) + (_lineRenderer.GetPosition(0) - mousePosition).normalized * 10;
-
+                Vector3 directionOfSniper = (transform.position - mousePosition).normalized;                
+                
                 RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionOfSniper);
                 RaycastHit2D lineTestHit;
 

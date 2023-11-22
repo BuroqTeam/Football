@@ -57,12 +57,10 @@ namespace FootBall
                     {
                         GoalKeeperSO.Value = ("left");
                     }
-                    //Debug.Log("1 gameObject name = " + gameObject.name);
                 }
                 else if (!_IsDragged)
                 {
                     GoalKeeperSO.Value = ("null");
-                    //Debug.Log("2 gameObject name = " + gameObject.name);
                 }
             }
         }
@@ -139,6 +137,7 @@ namespace FootBall
 
             _IsDragged = false;
             _sniperLineRenderer.RemoveLine();
+            _arrowLineRenderer.ResetArrowPos();
         }
 
         public void ResetForIdle()
