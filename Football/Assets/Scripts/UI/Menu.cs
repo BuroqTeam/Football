@@ -13,7 +13,10 @@ namespace FootBall
         public virtual void OnEnter(Sprite enterSprite, UnityEvent onPointerEnterEvent)
         {
             GetComponent<Button>().image.sprite = enterSprite;
-            onPointerEnterEvent.Invoke();            
+            if (!Application.isMobilePlatform)
+            {
+                onPointerEnterEvent.Invoke();
+            }            
         }
 
         public virtual void OnExit(Sprite exitSprite)

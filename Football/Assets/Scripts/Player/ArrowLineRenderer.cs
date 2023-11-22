@@ -15,7 +15,7 @@ namespace FootBall
         private void Awake()
         {
             _lineRenderer = GetComponent<LineRenderer>();
-            //_arrowObject = transform.GetChild(0).gameObject;
+            _arrowObject = transform.GetChild(0).gameObject;
         }
         
         #endregion
@@ -34,7 +34,8 @@ namespace FootBall
                 float newY = startPoint.y + ratio * (endPoint.y - startPoint.y);
                 float newZ = startPoint.z;
                 _lineRenderer.SetPosition(1, new Vector3(newX, newY, newZ));
-            }            
+            }
+            SetArrowPosition();
         }
 
         public void SetFirstLineRendererPosition(Vector3 initialMousePosition)
@@ -46,6 +47,7 @@ namespace FootBall
         public void RemoveLine()
         {
             _lineRenderer.positionCount = 0;
+            //SetArrowPosition();
         }
 
         public Vector3 GetDirection()
@@ -72,12 +74,22 @@ namespace FootBall
         {
             if (_lineRenderer.positionCount == 2)
             {
+                Vector3 direction = _lineRenderer.GetPosition(1) - _lineRenderer.GetPosition(0);
+                float angle = Mathf.Atan2(direction.y, direction.x);
+                                
                 _arrowObject.transform.position = _lineRenderer.GetPosition(1);
-            }
-            else if (_lineRenderer.positionCount == 0)
-            {
-                _arrowObject.transform.position = new Vector2(0, 0);
-            }
+                _arrowObject.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
+            }            
+        }
+
+
+        /// <summary>
+        /// When Dragging is finish this method called and Arrow gameObject to initialPos. 
+        /// </summary>
+        public void ResetArrowPos()
+        {
+            _arrowObject.transform.localPosition = new Vector2(0, 0);
+            //Debug.Log("Remove Arrow");
         }
         #endregion
 
