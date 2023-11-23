@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3342757791060396932}
   - component: {fileID: 2056445494569286470}
   - component: {fileID: 441546094788143432}
+  - component: {fileID: 276654622742593593}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -252,6 +253,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 913284aaf50df9848b7aca68acf45e06, type: 2}
+  IsMoving: 0
 --- !u!114 &441546094788143432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +267,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BallColisionSO: {fileID: 11400000, guid: 6bfe679f5160ed94394f4b380d9ff43b, type: 2}
+--- !u!114 &276654622742593593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760194140989344913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d90d77cd65635746bc544b569469ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwSpawns: 0.05
+  Echo: {fileID: 2500288506870210635, guid: 48e776822946bf24fa3618c8b5b01450, type: 3}

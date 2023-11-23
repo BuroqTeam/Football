@@ -13,10 +13,24 @@ namespace FootBall
         [SerializeField]
         private IntReference _teamTwoScore;
         private Rigidbody2D _rigidbody;
+        [HideInInspector] public bool IsMoving;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+
+        private void FixedUpdate()
+        {
+            if (_rigidbody.velocity.magnitude < 0.06f)
+            {
+                IsMoving = false;
+            }
+            else if (_rigidbody.velocity.magnitude > 0.06f)
+            {
+                IsMoving = true;
+            }
         }
 
 
