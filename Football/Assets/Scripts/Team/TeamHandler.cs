@@ -1,3 +1,4 @@
+using DG.Tweening;
 using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,22 +28,27 @@ namespace FootBall
 
         public IntVariable SniperValue;
 
+        private Vector2 _initialPosRightTeam = new Vector2(3, -6);
+        private Vector2 _initialPosLeftTeam = new Vector2(-3, -6);
+        private bool _isPlayersOnPosition = false;
+
         private void Awake()
         {
-            CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab);
-            CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther);
+            StartCoroutine( CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
+            StartCoroutine( CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
         }
 
         private void Start()
         {
             SniperValue.Value = 0;
-            SwitchTurn();
+            Invoke("SwitchTurn", 5);
+            //SwitchTurn();
         }
                 
 
         private void FixedUpdate()
         {
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle))
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition)
             {
                 timer += Time.deltaTime;                
 
@@ -68,6 +74,7 @@ namespace FootBall
                 {
                     SwitchTurn();
                     timer = 0f;
+                    Debug.Log("Switch Turn");
                 }
             }
             //else
@@ -79,15 +86,21 @@ namespace FootBall
         }
 
 
-        void CreatePlayers(TeamPosition team, List<GameObject> players, GameObject prefab)
+        IEnumerator CreatePlayers(TeamPosition team, List<GameObject> players, GameObject prefab, Vector2 initialPos)
         {
             foreach (Vector2 pos in team.PlayerPositions)
             {
                 GameObject player = Instantiate(prefab);
                 player.GetComponent<PlayerMovement>().TeamHand = this;
-                player.transform.position = new Vector3(pos.x, pos.y, zPos);
+                //player.transform.position = new Vector3(pos.x, pos.y, zPos);
+                player.transform.position = new Vector3(initialPos.x, initialPos.y, zPos);
+                player.transform.DOMove(new Vector3(initialPos.x, -3, zPos), 0.4f);
+                yield return new WaitForSeconds(0.4f);
+                player.transform.DOMove(new Vector3(pos.x, pos.y, zPos), 0.5f);
                 players.Add(player);
-            }           
+                yield return new WaitForSeconds(0.4f);
+            }
+            _isPlayersOnPosition = true;
         }
 
 
