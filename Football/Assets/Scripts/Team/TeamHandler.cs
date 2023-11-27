@@ -94,11 +94,11 @@ namespace FootBall
                 player.GetComponent<PlayerMovement>().TeamHand = this;
                 //player.transform.position = new Vector3(pos.x, pos.y, zPos);
                 player.transform.position = new Vector3(initialPos.x, initialPos.y, zPos);
-                player.transform.DOMove(new Vector3(initialPos.x, -3, zPos), 0.4f);
-                yield return new WaitForSeconds(0.4f);
-                player.transform.DOMove(new Vector3(pos.x, pos.y, zPos), 0.5f);
+                player.transform.DOMove(new Vector3(initialPos.x, -3, zPos), 0.3f);
+                yield return new WaitForSeconds(0.3f);
+                player.transform.DOMove(new Vector3(pos.x, pos.y, zPos), 0.3f);
                 players.Add(player);
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.3f);
             }
             _isPlayersOnPosition = true;
         }
