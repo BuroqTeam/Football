@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b22126d757be80458415dd27050259b, type: 3}
+  m_Name: Close
+  m_EditorClassIdentifier: 
+  PlainSp: {fileID: 21300000, guid: 6558abdf3f26d5845859c109a560e0d0, type: 3}
+  FramedSp: {fileID: 21300000, guid: fd38e4351c3aeb04cb62b5152a168486, type: 3}
+  NormalColor: {r: 0.5803922, g: 0.70980394, b: 0.24313726, a: 1}
+  LightColor: {r: 0.83137256, g: 0.9019608, b: 0.6627451, a: 1}
+  NomalFontSize: 18
+  BiggerFontSize: 22
