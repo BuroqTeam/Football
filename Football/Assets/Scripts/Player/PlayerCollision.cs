@@ -31,7 +31,7 @@ namespace FootBall
                 var direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal);
                 _rigidbody2D.velocity = direction * Mathf.Max(speed, 0);
             }
-            else if (collision.gameObject.CompareTag("Player") /*&& gameObject.GetComponent<PlayerMovement>().IsPlayerMoving*/)
+            else if (collision.gameObject.CompareTag("Player"))
             {
                 PlayerCollisionSO.Raise();
             }

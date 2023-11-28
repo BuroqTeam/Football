@@ -25,13 +25,11 @@ namespace FootBall
 
         public void DrawSniperLine()
         {
-            if (SniperValue.Value % 2 == 1)
+            if (SniperValue.Value % 2 == 0)
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 directionOfSniper = (transform.position - mousePosition).normalized;
-                                
-                //Vector3 pointC = _lineRenderer.GetPosition(0) + (_lineRenderer.GetPosition(0) - mousePosition).normalized * 10;
-
+                Vector3 directionOfSniper = (transform.position - mousePosition).normalized;                
+                
                 RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionOfSniper);
                 RaycastHit2D lineTestHit;
 
@@ -54,7 +52,7 @@ namespace FootBall
 
         public void SetFirstLineRendererPosition(Vector3 initialMousePosition)
         {
-            if (SniperValue.Value % 2 == 1)
+            if (SniperValue.Value % 2 == 0)
             {
                 _lineRenderer.positionCount = 2;
                 _lineRenderer.SetPosition(0, new Vector3(initialMousePosition.x, initialMousePosition.y, -0.01f));

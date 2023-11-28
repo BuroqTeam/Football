@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,12 +6,13 @@ namespace FootBall
 {
     public class Player : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public enum PlayerState {SimplePlayer, GoalKeeper};
+        public enum PlayerState {SimplePlayer, GoalKeeperPlayer};
         public PlayerState CurrentState;
 
         public PlayerInfo PlayerInfoSO;
         private TMP_Text _playerInfo;
         public bool IsEnable;
+        [HideInInspector] public bool IsGoalKeeperPlayer;
 
         private void Awake()
         {
@@ -47,10 +46,13 @@ namespace FootBall
             //Debug.Log("gameObject.transform.position = " + gameObject.transform.position);
             if (Mathf.Abs(xValue) > 5 ) 
             {
-                CurrentState = PlayerState.GoalKeeper;
+                CurrentState = PlayerState.GoalKeeperPlayer;
+                IsGoalKeeperPlayer = true;
+                gameObject.layer = 3;
             }
             else{
                 CurrentState = PlayerState.SimplePlayer;
+                IsGoalKeeperPlayer = false;
             }
         }
 

@@ -8,13 +8,15 @@ using UnityEngine.UI;
 namespace FootBall
 {
     public class Menu : MonoBehaviour
-    {       
-
+    {        
 
         public virtual void OnEnter(Sprite enterSprite, UnityEvent onPointerEnterEvent)
-        {
-            GetComponent<Button>().image.sprite = enterSprite;
-            onPointerEnterEvent.Invoke();
+        {            
+            if (!Application.isMobilePlatform)
+            {
+                GetComponent<Button>().image.sprite = enterSprite;
+                onPointerEnterEvent.Invoke();
+            }
         }
 
         public virtual void OnExit(Sprite exitSprite)
