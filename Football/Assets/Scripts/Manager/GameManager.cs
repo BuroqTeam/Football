@@ -26,7 +26,7 @@ namespace FootBall
 
         private void Start()
         {
-            UpdateGameState(GameState.Start);
+            //UpdateGameState(GameState.Start);
         }
         #endregion
 
@@ -54,6 +54,12 @@ namespace FootBall
                 case GameState.Finish:
                     break;
             }
+        }
+
+
+        public void StartGameState()
+        {
+            UpdateGameState(GameState.Start);
         }
         #endregion
 

@@ -1,3 +1,4 @@
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,13 +11,25 @@ namespace FootBall
         #region Fields
         [SerializeField] private TMP_Text _countDownText;
         private float _countDownTime = 180;
+        private bool _isCountDownWorking = false;
+        public BoolVariable StartAnimFinished;
         #endregion
 
 
-        #region MonoBehaviour CallBacks
+        #region MonoBehaviour CallBacks       
+
         private void Update()
         {
-            CountDown();
+            if (StartAnimFinished.Value && !_isCountDownWorking)
+            {
+                CountDownStart();
+                //Debug.Log(2);
+            }
+
+            if (_isCountDownWorking)
+            {
+                CountDown();
+            }
         }
         #endregion
 
@@ -37,6 +50,12 @@ namespace FootBall
             int seconds = Mathf.FloorToInt(_countDownTime % 60);
 
             _countDownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+
+
+        void CountDownStart()
+        {
+            _isCountDownWorking = true;
         }
         #endregion
 

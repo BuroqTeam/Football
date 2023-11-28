@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace FootBall
@@ -18,36 +19,44 @@ namespace FootBall
         [HideInInspector] public List<GameObject> _firstPlayers = new List<GameObject>();
         [HideInInspector] public List<GameObject> _secondPlayers = new List<GameObject>();
 
-        private int _turn;
-        [SerializeField] private TMP_Text _firstTeamText;
-        [SerializeField] private TMP_Text _secondTeamText;
+        private int _turn = 0;
+        [SerializeField] private TMP_Text _rightTeamText;
+        [SerializeField] private TMP_Text _leftTeamText;
 
         float timer = 0f;
         float interval = 15f;
         float zPos = -0.1f;
 
         public IntVariable SniperValue;
-
+        public BoolVariable StartAnimFinished;
         private Vector2 _initialPosRightTeam = new Vector2(3, -6);
         private Vector2 _initialPosLeftTeam = new Vector2(-3, -6);
         private bool _isPlayersOnPosition = false;
 
+        public UnityEvent MoveAnimEvent;
+
         private void Awake()
         {
-            StartCoroutine( CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
-            StartCoroutine( CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
+            //StartCoroutine( CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
+            //StartCoroutine( CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
         }
 
         private void Start()
         {
             SniperValue.Value = 0;
-            Invoke("SwitchTurn", 5);
             //SwitchTurn();
         }
-                
+        
 
         private void FixedUpdate()
         {
+            if (StartAnimFinished.Value)
+            {
+                StartAnimFinished.Value = false;
+                //Debug.Log(1);
+                SwitchTurn();
+            }
+
             if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition)
             {
                 timer += Time.deltaTime;                
@@ -57,17 +66,17 @@ namespace FootBall
 
                 if (_turn % 2 != 0)
                 {
-                    _firstTeamText.transform.parent.gameObject.SetActive(true);
-                    _secondTeamText.transform.parent.gameObject.SetActive(false);
-
-                    _firstTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                    //_firstTeamText.transform.parent.gameObject.SetActive(true);
+                    //_secondTeamText.transform.parent.gameObject.SetActive(false);
+                    _leftTeamText.text = "00:00";
+                    _rightTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                 }
                 else
                 {
-                    _firstTeamText.transform.parent.gameObject.SetActive(false);
-                    _secondTeamText.transform.parent.gameObject.SetActive(true);
-
-                    _secondTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                    //_firstTeamText.transform.parent.gameObject.SetActive(false);
+                    //_secondTeamText.transform.parent.gameObject.SetActive(true);
+                    _rightTeamText.text = "00:00";
+                    _leftTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                 }
 
                 if (timer >= interval)
@@ -86,6 +95,13 @@ namespace FootBall
         }
 
 
+        public void CreateTeam()
+        {
+            StartCoroutine(CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
+            StartCoroutine(CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
+        }
+
+
         IEnumerator CreatePlayers(TeamPosition team, List<GameObject> players, GameObject prefab, Vector2 initialPos)
         {
             foreach (Vector2 pos in team.PlayerPositions)
@@ -98,9 +114,11 @@ namespace FootBall
                 yield return new WaitForSeconds(0.3f);
                 player.transform.DOMove(new Vector3(pos.x, pos.y, zPos), 0.3f);
                 players.Add(player);
-                yield return new WaitForSeconds(0.3f);
+                //yield return new WaitForSeconds(0.1f);
             }
-            _isPlayersOnPosition = true;
+            yield return new WaitForSeconds(0.5f);
+
+            MoveAnimEvent.Invoke();
         }
 
 
@@ -117,6 +135,8 @@ namespace FootBall
                 EnablePlayers(_firstPlayers, false);
                 EnablePlayers(_secondPlayers, true);
             }
+
+            _isPlayersOnPosition = true;
         }
 
 
