@@ -7,65 +7,63 @@ using UnityEngine.UI;
 namespace FootBall
 {
     public class MoveAnim : MonoBehaviour
-    {
-        public enum Movestate {NoOne, Horizontal, Vertical };
-        public Movestate CurrentState;
+    {        
         public Canvas MainCanvas;
-        [HideInInspector] public Vector3 InitialPos;
+        private Vector2 _initialLocalPos;
+        private Vector2 _initialAnchoredPos;
         private RectTransform _rectTransform;
 
         private Vector2 _canvasSize;
         private Vector2 _referenceResolution;
 
+
         private void Awake()
         {            
             _rectTransform = GetComponent<RectTransform>();
-            InitialPos = _rectTransform.localPosition;
+            _initialLocalPos = _rectTransform.localPosition;
+            _initialAnchoredPos = _rectTransform.anchoredPosition;
+
             _canvasSize = MainCanvas.GetComponent<RectTransform>().sizeDelta;
             _referenceResolution = MainCanvas.gameObject.GetComponent<CanvasScaler>().referenceResolution;
-
-            //SetPosition();
-        }
-
-        
-        void SetPosition()
-        {
-            switch (CurrentState)
-            {
-                case Movestate.NoOne:
-                    break;
-                case Movestate.Horizontal:
-                    MoveOutLeftAndRight();
-                    break;
-                case Movestate.Vertical:
-                    MoveOutToUp();
-                    break;
-            }
-        }
-
-
-        public void MoveOutToUp()
-        {
             
-            gameObject.GetComponent<RectTransform>().DOAnchorPosY(gameObject.GetComponent<RectTransform>().sizeDelta.y, 0.1f);
+        }
+        
+
+
+        public void MoveOutTop(float duration)
+        {
+            gameObject.GetComponent<RectTransform>().DOAnchorPosY(gameObject.GetComponent<RectTransform>().sizeDelta.y / 2, duration);          
         }
 
 
-        void MoveOutLeftAndRight()
+        public void MoveOutRight(float duration)
         {
-            if (transform.position.x > 0) {
-                _rectTransform.localPosition = new Vector3(_referenceResolution.x / 2 +_rectTransform.sizeDelta.x, InitialPos.y, InitialPos.z);
-            }
-            else if (transform.position.x < 0)
-            {
-                _rectTransform.localPosition = new Vector3(-_canvasSize.y / 2, InitialPos.y, InitialPos.z);
-            }
+            _rectTransform.DOAnchorPosX(_referenceResolution.x / 2 + _rectTransform.sizeDelta.x, duration);                                  
         }
 
 
-        public void MoveCenter(float durration)
+        public void MoveOutLeft(float duration)
         {
-            _rectTransform.DOAnchorPos(InitialPos, durration);
+            _rectTransform.DOAnchorPosX(-_referenceResolution.x / 2 - _rectTransform.sizeDelta.x, duration);
+        }
+
+
+        public void MoveToInitialLocalPos(float duration)
+        {
+            _rectTransform.DOAnchorPos(_initialLocalPos, duration);
+        }
+
+
+        public void MoveToInitialAnchoredPos(float duration)
+        {
+            _rectTransform.DOAnchorPos(_initialAnchoredPos, duration);
+        }
+
+
+        public void ChangeScale(float newScale, float duration)
+        {
+            _rectTransform.DOScale(newScale, duration)
+                .SetEase(Ease.InQuad/*OutElastic*/);            
         }
 
 
