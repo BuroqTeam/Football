@@ -39,7 +39,7 @@ namespace FootBall
         private async void LoadUserInfo()
         {
             NameText.text = await RetrieveSpecificData<string>("Name");
-            LastnameText.text = await RetrieveSpecificData<string>("Lastname");           
+            LastnameText.text = await RetrieveSpecificData<string>("Lastname");            
         }
 
 

@@ -33,6 +33,15 @@ namespace FootBall
             {
                 Debug.LogException(e);
             }
+
+            if (AuthenticationService.Instance.AccessToken != null)
+            {
+                LoginObject.SetActive(false);
+                MenuObject.SetActive(true);
+            }
+
+
+
         }
 
       
