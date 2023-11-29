@@ -5,13 +5,15 @@ using DG.Tweening;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 namespace FootBall
 {
-    public class TeamEmblemMove : MonoBehaviour
+    public class BoardAnimation : MonoBehaviour
     {
         public Canvas MainCanvas;
         public GameObject TopPanel;
+        public GameObject Buttons;
         public GameObject RightTeam;
         public GameObject LeftTeam;
         public GameObject VsObject;
@@ -31,11 +33,7 @@ namespace FootBall
             BoardGameObject = gameObject.transform.GetChild(0).gameObject;
             
             _canvasSize = MainCanvas.GetComponent<RectTransform>().sizeDelta;
-            _referenceResolution = MainCanvas.GetComponent<CanvasScaler>().referenceResolution;
-            
-            //float cameraHeight = Camera.main.orthographicSize;
-            //float cameraWidth = cameraHeight * Camera.main.aspect;
-            //float exitXPosition = Camera.main.transform.position.x + cameraWidth + TeamNameRight.GetComponent<SpriteRenderer>().bounds.size.x;
+            _referenceResolution = MainCanvas.GetComponent<CanvasScaler>().referenceResolution;            
         }
 
 
@@ -74,14 +72,13 @@ namespace FootBall
             //yield return new WaitForSeconds(0.5f);
 
             //StartAnimFinished.Value = true;
-
-
             
         }
 
 
         public void TopPanelMove()
         {
+            Buttons.GetComponent<MoveAnim>().MoveToInitialAnchoredPos(0.5f);
             TopPanel.GetComponent<MoveAnim>().MoveToInitialAnchoredPos(0.5f);
             StartAnimFinished.Value = true;
         }
@@ -89,8 +86,9 @@ namespace FootBall
 
         void InitialSettings()
         {
-            BoardGameObject.GetComponent<RectTransform>().DOAnchorPosX(_referenceResolution.x / 2 + BoardGameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
+            //BoardGameObject.GetComponent<RectTransform>().DOAnchorPosX(_referenceResolution.x / 2 + BoardGameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
             BoardGameObject.GetComponent<MoveAnim>().MoveOutRight(0);
+            Buttons.GetComponent<MoveAnim>().MoveOutBottom(0);
 
             LeftTeam.GetComponent<MoveAnim>().ChangeScale(0, 0);
             RightTeam.GetComponent<MoveAnim>().ChangeScale(0, 0);
@@ -98,22 +96,6 @@ namespace FootBall
             VsObject.transform.localScale = new Vector3(0, 0, 0);
             TopPanel.GetComponent<MoveAnim>().MoveOutTop(0);
         }
-
-
-        void MoveOut(GameObject obj)
-        {
-            //Debug.Log(Screen.width + " " + Screen.height);
-            //Debug.Log(Camera.);
-            //float newPosX = Screen.width / 2;
-            //obj.GetComponent<RectTransform>().DOAnchorPosX(newPosX, 1);
-
-            //Vector3 objPos = obj.transform.position;
-            //Vector3 screenPoint = Camera.main.WorldToScreenPoint(objPos);
-            //float screenWidth = Screen.width;
-            //float distanceToRight = screenWidth - screenPoint.x;
-            //Debug.Log("distanceToRight = " + distanceToRight);
-            //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, obj.GetComponent<RectTransform>().position.y, obj.GetComponent<RectTransform>().position.z)));
-        }
-
+                
     }
 }

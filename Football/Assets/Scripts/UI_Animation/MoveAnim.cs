@@ -36,6 +36,12 @@ namespace FootBall
         }
 
 
+        public void MoveOutBottom(float duration)
+        {
+            gameObject.GetComponent<RectTransform>().DOAnchorPosY(-_rectTransform.sizeDelta.y/2, duration);
+        }
+
+
         public void MoveOutRight(float duration)
         {
             _rectTransform.DOAnchorPosX(_referenceResolution.x / 2 + _rectTransform.sizeDelta.x, duration);                                  

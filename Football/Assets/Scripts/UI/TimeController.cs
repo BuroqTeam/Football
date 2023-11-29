@@ -11,7 +11,8 @@ namespace FootBall
         #region Fields
         [SerializeField] private TMP_Text _countDownText;
         private float _countDownTime = 180;
-        private bool _isCountDownWorking = false;
+        //private bool _isCountDownWorking = false;
+        private bool _isStartWork = false;
         public BoolVariable StartAnimFinished;
         #endregion
 
@@ -20,13 +21,13 @@ namespace FootBall
 
         private void Update()
         {
-            if (StartAnimFinished.Value && !_isCountDownWorking)
-            {
-                CountDownStart();
-                //Debug.Log(2);
-            }
+            //if (StartAnimFinished.Value && !_isCountDownWorking)
+            //{
+            //    StartCoroutine(CountDownStart());
+            //    //Debug.Log(2);
+            //}
 
-            if (_isCountDownWorking)
+            if (_isStartWork)
             {
                 CountDown();
             }
@@ -53,9 +54,18 @@ namespace FootBall
         }
 
 
-        void CountDownStart()
+        public void StartCountDown()
         {
-            _isCountDownWorking = true;
+            StartCoroutine(CountDownStart());
+        }
+
+
+        IEnumerator CountDownStart()
+        {
+            //_isCountDownWorking = true;
+            yield return new WaitForSeconds(1f);
+            
+            _isStartWork = true;
         }
         #endregion
 
