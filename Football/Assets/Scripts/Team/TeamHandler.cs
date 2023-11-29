@@ -33,7 +33,8 @@ namespace FootBall
         private Vector2 _initialPosLeftTeam = new Vector2(-3, -6);
         private bool _isPlayersOnPosition = false;
 
-        public UnityEvent MoveAnimEvent;
+        public GameEvent GameStartEvent;
+        //public UnityEvent MoveAnimEvent;
 
         private void Awake()
         {
@@ -118,7 +119,8 @@ namespace FootBall
             }
             yield return new WaitForSeconds(0.5f);
 
-            MoveAnimEvent.Invoke();
+            //MoveAnimEvent.Invoke();
+            GameStartEvent.Raise();
         }
 
 

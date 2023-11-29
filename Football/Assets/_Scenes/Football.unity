@@ -267,6 +267,7 @@ MonoBehaviour:
   _leftTeamText: {fileID: 1714198350}
   SniperValue: {fileID: 11400000, guid: 999a0236fb7c88543bb498446b8e3d89, type: 2}
   StartAnimFinished: {fileID: 11400000, guid: 758417b816b5775459e0cd57065332b1, type: 2}
+  GameStartEvent: {fileID: 11400000, guid: 4c5f92fc06192f447b38c671b5b814e6, type: 2}
   MoveAnimEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1211,8 +1212,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284051316
-  m_fontColor: {r: 0.454902, g: 0.43529415, b: 0.34901962, a: 1}
+    rgba: 4289192652
+  m_fontColor: {r: 0.8, g: 0.8862745, b: 0.654902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1930,7 +1931,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.13, y: 1.13, z: 1}
+  m_LocalScale: {x: 1.545, y: 1.545, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1856399911}
@@ -1976,12 +1977,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 47193155b9abe2f4884ca57800276b5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ffb20f76444dde49913df8638dfb2cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 12.71, y: 8.8}
+  m_Size: {x: 9.28, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2366,8 +2367,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287532688
-  m_fontColor: {r: 0.5647059, g: 0.5568628, b: 0.5568628, a: 1}
+    rgba: 4291151301
+  m_fontColor: {r: 0.77254903, g: 0.77254903, b: 0.77254903, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2955,8 +2956,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287532688
-  m_fontColor: {r: 0.5660378, g: 0.5580278, b: 0.5580278, a: 1}
+    rgba: 4291151301
+  m_fontColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4892,7 +4893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -6.200001}
+  m_AnchoredPosition: {x: 0, y: -6.5}
   m_SizeDelta: {x: 64.287, y: 12.284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954092668
@@ -7095,9 +7096,9 @@ RectTransform:
   - {fileID: 1402953590}
   m_Father: {fileID: 1819556177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -59.3, y: -23.9}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432587588
@@ -7148,7 +7149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442588231}
   m_Layer: 5
-  m_Name: Top
+  m_Name: Top_OldPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7605,9 +7606,9 @@ RectTransform:
   - {fileID: 299070929}
   m_Father: {fileID: 1852637943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 59.3, y: -23.3}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506070443
@@ -7815,6 +7816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCanvas: {fileID: 1777572923}
   TopPanel: {fileID: 1868329281}
+  Buttons: {fileID: 2129991453}
   RightTeam: {fileID: 52828064}
   LeftTeam: {fileID: 1835857970}
   VsObject: {fileID: 2021051436}
@@ -8202,6 +8204,7 @@ GameObject:
   - component: {fileID: 1545184443}
   - component: {fileID: 1545184444}
   - component: {fileID: 1545184445}
+  - component: {fileID: 1545184446}
   m_Layer: 0
   m_Name: Game Event Manager
   m_TagString: Untagged
@@ -8435,6 +8438,58 @@ MonoBehaviour:
       - m_Target: {fileID: 1109349775808202049}
         m_TargetAssemblyTypeName: FootBall.BallMovement, Assembly-CSharp
         m_MethodName: ReturnToCenter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1545184446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545184437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c344a02bfcfc444aaa6a4764b7c771d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4c5f92fc06192f447b38c671b5b814e6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 954092668}
+        m_TargetAssemblyTypeName: FootBall.TimeController, Assembly-CSharp
+        m_MethodName: StartCountDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1531552403}
+        m_TargetAssemblyTypeName: FootBall.BoardAnimation, Assembly-CSharp
+        m_MethodName: TopPanelMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1534104572}
+        m_TargetAssemblyTypeName: FootBall.GameManager, Assembly-CSharp
+        m_MethodName: StartGameState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10326,8 +10381,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284051316
-  m_fontColor: {r: 0.454902, g: 0.43529415, b: 0.34901962, a: 1}
+    rgba: 4289192652
+  m_fontColor: {r: 0.8000001, g: 0.8862746, b: 0.654902, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11275,8 +11330,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 525, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868329283
 MonoBehaviour:
@@ -12414,6 +12469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129991454}
+  - component: {fileID: 2129991455}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -12443,6 +12499,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 20.51001}
   m_SizeDelta: {x: 150, y: 41.02}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2129991455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129991453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5802a37ff6e1672498e45d727ab25154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCanvas: {fileID: 1777572923}
 --- !u!1 &2135977075
 GameObject:
   m_ObjectHideFlags: 0
