@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 262938713649820609}
   - component: {fileID: 5164279597327737314}
   - component: {fileID: 738586632511198709}
+  - component: {fileID: 6096845192531601085}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ae8b9cfa6c60d5c4b83797ae70c1c1b8, type: 3}
   m_Color: {r: 1, g: 0.987535, b: 0.32549024, a: 1}
   m_FlipX: 0
@@ -210,6 +211,7 @@ MonoBehaviour:
   PlayerInfoSO: {fileID: 11400000, guid: 1ef539bfce25f1547a0919e9590741dc, type: 2}
   IsEnable: 0
   IsGoalKeeperPlayer: 0
+  PlayerNumber: 0
 --- !u!114 &262938713649820609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCollisionSO: {fileID: 11400000, guid: c6d2ef3d4f782604f9290c0e7d23dbe7, type: 2}
+--- !u!114 &6096845192531601085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399165166815184496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c69820613cb9aa498faa1809b8dec74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerRenderer: {fileID: 5542901220292791713}
+  _edgeRenderer: {fileID: 7319390380556523212}
+  _circleRenderer: {fileID: 4271851463366193874}
+  _lineRenderer: {fileID: 5492224414226060509}
+  _arrowRenderer: {fileID: 8669897010360288462}
+  _sniperRenderer: {fileID: 5970725908356256959}
+  _initialOrderOfPlayer: 0
+  _initialOrderOfEdge: 0
+  _initialOrderOfCircle: 0
+  _initialOrderOfLine: 0
+  _initialOrderOfArrow: 0
+  _initialOrderOfSniper: 0
 --- !u!1 &4029754864203171947
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6866616862688394170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -676,7 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc39890c954a7cf48a2e775a6da235c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5629474852223934912
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +774,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1119ab10157d0c149bf5af236f8505ba, type: 3}
   m_Color: {r: 1, g: 0.22352941, b: 0.22352941, a: 1}
   m_FlipX: 0
@@ -980,7 +1005,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ae8b9cfa6c60d5c4b83797ae70c1c1b8, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_FlipX: 0

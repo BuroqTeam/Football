@@ -13,6 +13,7 @@ namespace FootBall
         #region Fields
         private LineRenderer _lineRenderer;
         public IntVariable SniperValue;
+        private Vector3 _startPos;
         #endregion
 
         #region MonoBehaviour CallBacks
@@ -41,7 +42,7 @@ namespace FootBall
                         lineTestHit = hit;
                         //Debug.Log(lineTestHit.point);
 
-                        _lineRenderer.SetPosition(1, new Vector3(lineTestHit.point.x, lineTestHit.point.y, -0.01f));
+                        _lineRenderer.SetPosition(1, new Vector3(lineTestHit.point.x, lineTestHit.point.y, _startPos.z /*-0.01f*/));
                         break;
                     }
                 }
@@ -55,7 +56,8 @@ namespace FootBall
             if (SniperValue.Value % 2 == 0)
             {
                 _lineRenderer.positionCount = 2;
-                _lineRenderer.SetPosition(0, new Vector3(initialMousePosition.x, initialMousePosition.y, -0.01f));
+                _lineRenderer.SetPosition(0, new Vector3(initialMousePosition.x, initialMousePosition.y, initialMousePosition.z /*-0.01f*/));
+                _startPos = _lineRenderer.GetPosition(0);
             }
         }
 
