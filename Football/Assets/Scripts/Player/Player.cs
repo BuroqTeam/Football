@@ -13,6 +13,7 @@ namespace FootBall
         private TMP_Text _playerInfo;
         public bool IsEnable;
         [HideInInspector] public bool IsGoalKeeperPlayer;
+        [HideInInspector] public int PlayerNumber;
 
         private void Awake()
         {
@@ -42,18 +43,32 @@ namespace FootBall
         
         void CheckCurrentState()
         {
-            float xValue = gameObject.transform.position.x;
-            //Debug.Log("gameObject.transform.position = " + gameObject.transform.position);
-            if (Mathf.Abs(xValue) > 5 ) 
+            if (PlayerNumber == 1) 
             {
                 CurrentState = PlayerState.GoalKeeperPlayer;
                 IsGoalKeeperPlayer = true;
                 gameObject.layer = 3;
             }
-            else{
+            else
+            {
                 CurrentState = PlayerState.SimplePlayer;
                 IsGoalKeeperPlayer = false;
             }
+
+
+            float xValue = gameObject.transform.position.x;
+            //Debug.Log("gameObject.transform.position = " + gameObject.transform.position);
+
+            //if (Mathf.Abs(xValue) > 5 ) 
+            //{
+            //    CurrentState = PlayerState.GoalKeeperPlayer;
+            //    IsGoalKeeperPlayer = true;
+            //    gameObject.layer = 3;
+            //}
+            //else{
+            //    CurrentState = PlayerState.SimplePlayer;
+            //    IsGoalKeeperPlayer = false;
+            //}
         }
 
 

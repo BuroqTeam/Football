@@ -9,6 +9,9 @@ using Unity.VisualScripting;
 
 namespace FootBall
 {
+    /// <summary>
+    /// This script responsible for StartBoard animation.
+    /// </summary>
     public class BoardAnimation : MonoBehaviour
     {
         public Canvas MainCanvas;

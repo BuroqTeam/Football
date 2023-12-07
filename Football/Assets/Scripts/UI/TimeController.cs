@@ -11,9 +11,11 @@ namespace FootBall
         #region Fields
         [SerializeField] private TMP_Text _countDownText;
         private float _countDownTime = 180;
-        //private bool _isCountDownWorking = false;
+        
         private bool _isStartWork = false;
         public BoolVariable StartAnimFinished;
+        public GameEvent FinishEventSO;
+        public BoolVariable TimeIsFinished;
         #endregion
 
 
@@ -27,7 +29,7 @@ namespace FootBall
             //    //Debug.Log(2);
             //}
 
-            if (_isStartWork)
+            if (_isStartWork && !TimeIsFinished.Value)
             {
                 CountDown();
             }
@@ -44,7 +46,10 @@ namespace FootBall
             else if (_countDownTime < 0)
             {
                 _countDownTime = 0;
-                Debug.Log("Game finished");
+                TimeIsFinished.Value = true;
+                FinishEventSO.Raise();
+
+                //Debug.Log("Game finished");
             }
 
             int minutes = Mathf.FloorToInt(_countDownTime / 60);

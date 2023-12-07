@@ -34,7 +34,7 @@ namespace FootBall
         private bool _isPlayersOnPosition = false;
 
         public GameEvent GameStartEvent;
-        //public UnityEvent MoveAnimEvent;
+        public BoolVariable TimeIsFinish;
 
         private void Awake()
         {
@@ -44,6 +44,7 @@ namespace FootBall
 
         private void Start()
         {
+            TimeIsFinish.Value = false;
             SniperValue.Value = 0;
             //SwitchTurn();
         }
@@ -58,7 +59,7 @@ namespace FootBall
                 SwitchTurn();
             }
 
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition)
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition && !TimeIsFinish.Value)
             {
                 timer += Time.deltaTime;                
 
@@ -105,10 +106,13 @@ namespace FootBall
 
         IEnumerator CreatePlayers(TeamPosition team, List<GameObject> players, GameObject prefab, Vector2 initialPos)
         {
+            int playerNumber = 1;
             foreach (Vector2 pos in team.PlayerPositions)
             {
                 GameObject player = Instantiate(prefab);
                 player.GetComponent<PlayerMovement>().TeamHand = this;
+                player.GetComponent<Player>().PlayerNumber = playerNumber;
+                playerNumber += 1;
                 //player.transform.position = new Vector3(pos.x, pos.y, zPos);
                 player.transform.position = new Vector3(initialPos.x, initialPos.y, zPos);
                 player.transform.DOMove(new Vector3(initialPos.x, -3, zPos), 0.3f);
