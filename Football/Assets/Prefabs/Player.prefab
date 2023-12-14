@@ -589,12 +589,6 @@ MonoBehaviour:
   _lineRenderer: {fileID: 5492224414226060509}
   _arrowRenderer: {fileID: 2843775102176656943}
   _sniperRenderer: {fileID: 5282456198574325535}
-  _initialOrderOfPlayer: 0
-  _initialOrderOfEdge: 0
-  _initialOrderOfCircle: 0
-  _initialOrderOfLine: 0
-  _initialOrderOfArrow: 0
-  _initialOrderOfSniper: 0
 --- !u!1 &4029754864203171947
 GameObject:
   m_ObjectHideFlags: 0

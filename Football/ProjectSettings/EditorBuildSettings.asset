@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Football.unity
     guid: 4852729327138ac41b1f0852df07419b
+  - enabled: 1
+    path: Assets/_Scenes/TeamSelection.unity
+    guid: f48f7ed1f2957b7429f463066d90172f
   m_configObjects: {}

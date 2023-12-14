@@ -1,5 +1,4 @@
 using ScriptableObjectArchitecture;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +7,9 @@ namespace FootBall
 {
     public class TeamChooser : MonoBehaviour
     {
+        public enum Teams { NoOne, FirstTeam, SecondTeam}
+        public Teams CurrentTeam;
+
         public TeamListSO TeamList;
 
         [SerializeField] private TMP_Text TeamName;
@@ -16,6 +18,7 @@ namespace FootBall
 
         public StringVariable ChosenTeamName;
         public StringVariable EnemyTeamName;
+
 
         private void Awake()
         {
@@ -36,78 +39,85 @@ namespace FootBall
                     _initialIndex += 1;
                 }
             }
-
             
-            Debug.Log(gameObject.name);
-            TeamName.text = TeamList.TeamNames[_initialIndex];
-            TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
-            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
+            Debug.Log(gameObject.name);            
+            WriteAndSaveData();
         }
-
+        
 
         public void ChangeTeamToRight()
         {
-            _initialIndex++;
-
-            if (_initialIndex < TeamList.TeamNames.Count())
+            while (true)
             {
-                //while (ChosenTeamName.Value != EnemyTeamName.Value)
-                //if (CheckTeam())
-                //        break;
-                //    else
-                //        _initialIndex += 1;
-
-                TeamName.text = TeamList.TeamNames[_initialIndex];
-                TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
-            }
-            else
-            {
-                _initialIndex = 0;
-
-                //while (ChosenTeamName.Value != EnemyTeamName.Value)
-                //    if (CheckTeam())
-                //        break;
-                //    else
-                //        _initialIndex += 1;
-
-                TeamName.text = TeamList.TeamNames[_initialIndex];
-                TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
+                //Debug.Log("Working");
+                _initialIndex += 1;
+                if (_initialIndex < TeamList.TeamNames.Length && CheckTeam())
+                {
+                    break;
+                }
+                else if (_initialIndex >= TeamList.TeamNames.Length)
+                {
+                    _initialIndex = -1;
+                }
             }
 
-            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
+            
+            WriteAndSaveData();
         }
-
+        
 
         public void ChangeTeamToLeft()
         {
-            _initialIndex--;
-
-            if (_initialIndex >= 0)
+            while (true)
             {
-                TeamName.text = TeamList.TeamNames[_initialIndex];
-                TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
-            }
-            else
-            {
-                _initialIndex = TeamList.TeamNames.Count() - 1;
-                TeamName.text = TeamList.TeamNames[_initialIndex];
-                TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
+                //Debug.Log("Running");
+                _initialIndex -= 1;
+                if (_initialIndex >= 0 && CheckTeam())
+                {
+                    break;
+                }
+                else if (_initialIndex < 0)
+                {
+                    _initialIndex = TeamList.TeamNames.Length;
+                }
             }
 
-            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
+            
+            WriteAndSaveData();
         }
 
 
         bool CheckTeam()
         {
             if (TeamList.TeamNames[_initialIndex] != EnemyTeamName.Value)            
-                return true;            
-            else            
-                return false;            
+                return true;
+            else
+                return false;
+        }              
+
+
+        /// <summary>
+        /// This method write FC name on TMP_Text and change club logo. After this save chosen club name on PlayerPrefs
+        /// </summary>
+        void WriteAndSaveData()
+        {
+            TeamName.text = TeamList.TeamNames[_initialIndex];
+            TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
+            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
+
+            if (CurrentTeam == Teams.FirstTeam)
+            {
+                PlayerPrefs.SetString("FirstTeamName", ChosenTeamName.Value);
+                //Debug.Log("FirstTeamName");
+            }
+            else if(CurrentTeam == Teams.SecondTeam)
+            {
+                PlayerPrefs.SetString("SecondTeamName", ChosenTeamName.Value);
+                //Debug.Log("SecondTeamName");
+            }            
         }
 
-
-        /*         
+        /*
         public void ChangeTeamToRight()
         {
             _initialIndex++;
@@ -123,6 +133,7 @@ namespace FootBall
                 TeamName.text = TeamList.TeamNames[_initialIndex];
                 TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
             }
+            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
         }
 
 
@@ -141,6 +152,7 @@ namespace FootBall
                 TeamName.text = TeamList.TeamNames[_initialIndex];
                 TeamLogo.sprite = TeamList.TeamLogos[_initialIndex];
             }
+            ChosenTeamName.Value = TeamList.TeamNames[_initialIndex];
         }         
          */
     }
