@@ -64,7 +64,7 @@ namespace FootBall
                 _circleRenderer.sortingOrder = _initialOrderOfCircle + 3;
                 _lineRenderer.sortingOrder = _initialOrderOfLine + 3;
                 _arrowRenderer.sortingOrder = _initialOrderOfArrow + 3;
-                _sniperRenderer.sortingOrder = _initialOrderOfSniper + 50;
+                _sniperRenderer.sortingOrder = _initialOrderOfSniper + 5;
             }
             else
             {

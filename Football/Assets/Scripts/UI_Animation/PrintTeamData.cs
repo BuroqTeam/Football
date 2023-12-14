@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +5,7 @@ using UnityEngine.UI;
 namespace FootBall
 {
     /// <summary>
-    /// This script responsible logo and text change in Football scene after Team selection.
+    /// This script responsible logo and text set in Football scene after Team selection.
     /// This script added gameObjects which has component Image or TMP_Text. 
     /// </summary>
     public class PrintTeamData : MonoBehaviour
