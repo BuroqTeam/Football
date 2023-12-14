@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace FootBall
 {
+    /// <summary>
+    /// This script used in Team Selection scene for change selected football club.
+    /// </summary>
     public class TeamChooser : MonoBehaviour
     {
         public enum Teams { NoOne, FirstTeam, SecondTeam}
