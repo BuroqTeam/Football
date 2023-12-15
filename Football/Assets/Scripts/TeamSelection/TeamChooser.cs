@@ -43,7 +43,7 @@ namespace FootBall
                 }
             }
             
-            Debug.Log(gameObject.name);            
+            //Debug.Log(gameObject.name);
             WriteAndSaveData();
         }
         
@@ -111,13 +111,15 @@ namespace FootBall
             if (CurrentTeam == Teams.FirstTeam)
             {
                 PlayerPrefs.SetString("FirstTeamName", ChosenTeamName.Value);
-                //Debug.Log("FirstTeamName");
+                PlayerPrefs.SetInt("FirstTeamIndex", _initialIndex);
+                //Debug.Log("FirstTeamName = " + _initialIndex);
             }
             else if(CurrentTeam == Teams.SecondTeam)
             {
                 PlayerPrefs.SetString("SecondTeamName", ChosenTeamName.Value);
-                //Debug.Log("SecondTeamName");
-            }            
+                PlayerPrefs.SetInt("SecondTeamIndex", _initialIndex);
+                //Debug.Log("SecondTeamName = " + _initialIndex);
+            }
         }
 
         /*

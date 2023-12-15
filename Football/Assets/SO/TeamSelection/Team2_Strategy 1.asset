@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f92ab596e9ecc944a2ca52faec790bd, type: 3}
+  m_Name: Team2_Strategy 1
+  m_EditorClassIdentifier: 
+  ListOfTeamPositions:
+  - {fileID: 11400000, guid: be85d45f4c584814f9a14c49790c7d88, type: 2}
+  - {fileID: 11400000, guid: be34bf6b54e78af4691bfb806995d702, type: 2}
+  - {fileID: 11400000, guid: a379ba5d79c22544b9fe1feffe00901e, type: 2}

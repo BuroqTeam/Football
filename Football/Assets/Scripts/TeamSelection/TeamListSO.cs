@@ -8,5 +8,6 @@ public class TeamListSO : ScriptableObject
 {
     public string[] TeamNames;
     public Sprite[] TeamLogos;
-        
+    public Sprite[] TeamUniforms;
+    public Sprite[] GoalKeeperUniforms;
 }
