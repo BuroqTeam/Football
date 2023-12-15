@@ -13,6 +13,8 @@ namespace FootBall
     {
         public GameObject PlayerPrefab;
         public GameObject PlayerPrefabOther;
+        public StrategyList FirstTeamStrategy;
+        public StrategyList SecondTeamStrategy;
         public TeamPosition FirstTeamSO;
         public TeamPosition SecondTeamSO;
 
@@ -38,6 +40,12 @@ namespace FootBall
 
         private void Awake()
         {
+            int firstTeamStrategy = PlayerPrefs.GetInt("FirstTeamStrategyIndex");
+            FirstTeamSO = FirstTeamStrategy.ListOfTeamPositions[firstTeamStrategy];
+
+            int secondTeamStrategy = PlayerPrefs.GetInt("SecondTeamStrategyIndex");
+            SecondTeamSO = SecondTeamStrategy.ListOfTeamPositions[secondTeamStrategy];
+
             //StartCoroutine( CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
             //StartCoroutine( CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
         }

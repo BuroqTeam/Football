@@ -6,6 +6,8 @@ namespace FootBall
 {
     public class Player : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public enum Teams {NoTeam, FirstTeam, SecondTeam};
+        public Teams CurrentTeam;
         public enum PlayerState {SimplePlayer, GoalKeeperPlayer};
         public PlayerState CurrentState;
 
@@ -56,9 +58,9 @@ namespace FootBall
             }
 
 
-            float xValue = gameObject.transform.position.x;
-            //Debug.Log("gameObject.transform.position = " + gameObject.transform.position);
 
+
+            //float xValue = gameObject.transform.position.x;
             //if (Mathf.Abs(xValue) > 5 ) 
             //{
             //    CurrentState = PlayerState.GoalKeeperPlayer;

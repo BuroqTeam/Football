@@ -286,10 +286,10 @@ TextureImporter:
       name: sport_forms_7
       rect:
         serializedVersion: 2
-        x: 303
-        y: 293
-        width: 23
-        height: 25
+        x: 172
+        y: 95
+        width: 42
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,10 +517,10 @@ TextureImporter:
       name: sport_forms_18
       rect:
         serializedVersion: 2
-        x: 253
-        y: 189
-        width: 24
-        height: 25
+        x: 129
+        y: 49
+        width: 42
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -530,6 +530,111 @@ TextureImporter:
       bones: []
       spriteID: 831560f15e28b004581e48c4e94b585e
       internalID: -626398734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sport_forms_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 49
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd40c50cd7af00d4e8e559bd1d386031
+      internalID: 2090978485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sport_forms_20
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 95
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d34e2fb80e2b64b86d64f69196d46c
+      internalID: -572406385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sport_forms_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 141
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f50d1c0c952f14dbe872ff80ce21d3
+      internalID: 933968649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sport_forms_22
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 142
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27d653c3db7f1346b1bee701cdde5e5
+      internalID: 923260106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sport_forms_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 233
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f072eab3b37f6c46a4d79430b290c96
+      internalID: -583666619
       vertices: []
       indices: 
       edges: []
@@ -556,7 +661,12 @@ TextureImporter:
       sport_forms_16: 1500700877
       sport_forms_17: -380082550
       sport_forms_18: -626398734
+      sport_forms_19: 2090978485
       sport_forms_2: -1839714467
+      sport_forms_20: -572406385
+      sport_forms_21: 933968649
+      sport_forms_22: 923260106
+      sport_forms_23: -583666619
       sport_forms_3: 804049766
       sport_forms_4: 524101361
       sport_forms_5: -1142947782

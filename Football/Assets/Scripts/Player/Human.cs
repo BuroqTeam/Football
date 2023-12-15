@@ -20,6 +20,7 @@ namespace FootBall
         public TeamListSO TeamList;
 
         private GameObject _parentObject;
+        private Player _player;
 
         void Start()
         {
@@ -38,16 +39,25 @@ namespace FootBall
 
         void SetPlayerUniform()
         {
-            Player _player = _parentObject.GetComponent<Player>();
-
-            if (_player.IsGoalKeeperPlayer)
+            _player = _parentObject.GetComponent<Player>();
+            
+            if (_player.CurrentTeam.ToString() == "FirstTeam")
             {
-                int rand = Random.Range(0, GoalKeeperUniforms.Length);
-                _uniformSpriteRenderer.sprite = GoalKeeperUniforms[rand];
+                int spriteIndex = PlayerPrefs.GetInt("FirstTeamIndex");
+                //Debug.Log("spriteIndex = " + spriteIndex);
+                if (_player.IsGoalKeeperPlayer)                
+                    _uniformSpriteRenderer.sprite = TeamList.GoalKeeperUniforms[spriteIndex];                
+                else
+                    _uniformSpriteRenderer.sprite = TeamList.TeamUniforms[spriteIndex];               
             }
-            else
+            else if(_player.CurrentTeam.ToString() == "SecondTeam")
             {
-
+                int spriteIndex = PlayerPrefs.GetInt("SecondTeamIndex");
+                //Debug.Log("spriteIndex = " + spriteIndex);
+                if (_player.IsGoalKeeperPlayer)                
+                    _uniformSpriteRenderer.sprite = TeamList.GoalKeeperUniforms[spriteIndex];                
+                else
+                    _uniformSpriteRenderer.sprite = TeamList.TeamUniforms[spriteIndex];               
             }
         }
 
