@@ -1,4 +1,5 @@
 using DG.Tweening;
+using ScriptableObjectArchitecture;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace FootBall
         public TMP_Text ScoreAnimText;
         public GameEvent RestartEvent;
         public GameEvent StartEvent;
+        public BoolVariable IsGoalHappened;
         #endregion
 
 
@@ -52,6 +54,8 @@ namespace FootBall
             yield return new WaitForSeconds(0.5f);
 
             StartEvent.Raise();
+            IsGoalHappened.Value = false;
+
             //GameManager.Instance.UpdateGameState(GameState.Idle);
             // Text animation
             // Text is invisible

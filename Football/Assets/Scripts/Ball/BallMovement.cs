@@ -60,7 +60,6 @@ namespace FootBall
 
                 // For example, to stop the ball from moving further in the direction of the collision:
                 _rigidbody.velocity = _rigidbody.velocity / 2;
-                //Debug.Log("++");
             }
         }
 
@@ -82,6 +81,7 @@ namespace FootBall
         IEnumerator StopBallMove()
         {
             _rigidbody.velocity = _rigidbody.velocity / 2;
+            
             yield return new WaitForSeconds(0.07f);
             _rigidbody.velocity = Vector3.zero;
         }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2057330191185603610}
   - component: {fileID: 9204200760279298437}
   - component: {fileID: 1357505520412565014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,8 +117,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.024480741}
-  m_Size: {x: 0.25000003, y: 0.39103752}
+  m_Offset: {x: 0, y: -0.04243903}
+  m_Size: {x: 0.25000003, y: 0.3551199}
   m_Direction: 0
 --- !u!1 &330114196561039381
 GameObject:

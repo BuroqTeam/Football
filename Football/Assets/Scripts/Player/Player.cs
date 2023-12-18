@@ -49,16 +49,15 @@ namespace FootBall
             {
                 CurrentState = PlayerState.GoalKeeperPlayer;
                 IsGoalKeeperPlayer = true;
-                gameObject.layer = 3;
+                gameObject.layer = 10;
+                //Debug.Log("Goal Keeper Player");
             }
             else
             {
                 CurrentState = PlayerState.SimplePlayer;
                 IsGoalKeeperPlayer = false;
+                //Debug.Log("Simple Player");
             }
-
-
-
 
             //float xValue = gameObject.transform.position.x;
             //if (Mathf.Abs(xValue) > 5 ) 

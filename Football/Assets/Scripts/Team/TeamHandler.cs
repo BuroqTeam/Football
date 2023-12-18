@@ -15,8 +15,8 @@ namespace FootBall
         public GameObject PlayerPrefabOther;
         public StrategyList FirstTeamStrategy;
         public StrategyList SecondTeamStrategy;
-        public TeamPosition FirstTeamSO;
-        public TeamPosition SecondTeamSO;
+        [HideInInspector] public TeamPosition FirstTeamSO;
+        [HideInInspector] public TeamPosition SecondTeamSO;
 
         [HideInInspector] public List<GameObject> _firstPlayers = new List<GameObject>();
         [HideInInspector] public List<GameObject> _secondPlayers = new List<GameObject>();
@@ -37,6 +37,8 @@ namespace FootBall
 
         public GameEvent GameStartEvent;
         public BoolVariable TimeIsFinish;
+        public BoolVariable IsGoalHappened;
+
 
         private void Awake()
         {
@@ -45,10 +47,8 @@ namespace FootBall
 
             int secondTeamStrategy = PlayerPrefs.GetInt("SecondTeamStrategyIndex");
             SecondTeamSO = SecondTeamStrategy.ListOfTeamPositions[secondTeamStrategy];
-
-            //StartCoroutine( CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
-            //StartCoroutine( CreatePlayers(SecondTeamSO, _secondPlayers, PlayerPrefabOther, _initialPosLeftTeam));
         }
+
 
         private void Start()
         {
@@ -62,12 +62,11 @@ namespace FootBall
         {
             if (StartAnimFinished.Value)
             {
-                StartAnimFinished.Value = false;
-                //Debug.Log(1);
+                StartAnimFinished.Value = false;                
                 SwitchTurn();
             }
 
-            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition && !TimeIsFinish.Value)
+            if (GameManager.Instance.CurrentState.Equals(GameState.Idle) && _isPlayersOnPosition && !TimeIsFinish.Value && !IsGoalHappened.Value)
             {
                 timer += Time.deltaTime;                
 
@@ -76,15 +75,11 @@ namespace FootBall
 
                 if (_turn % 2 != 0)
                 {
-                    //_firstTeamText.transform.parent.gameObject.SetActive(true);
-                    //_secondTeamText.transform.parent.gameObject.SetActive(false);
                     _leftTeamText.text = "00:00";
                     _rightTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                 }
                 else
-                {
-                    //_firstTeamText.transform.parent.gameObject.SetActive(false);
-                    //_secondTeamText.transform.parent.gameObject.SetActive(true);
+                {                    
                     _rightTeamText.text = "00:00";
                     _leftTeamText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
                 }
@@ -96,15 +91,18 @@ namespace FootBall
                     Debug.Log("Switch Turn");
                 }
             }
-            //else
-            //{
-            //    timer = 0;
-            //    _firstTeamText.transform.parent.gameObject.SetActive(false);
-            //    _secondTeamText.transform.parent.gameObject.SetActive(false);
-            //}
+            else
+            {
+                timer = 0;
+                _leftTeamText.text = "00:00";
+                _rightTeamText.text = "00:00";
+            }
         }
 
 
+        /// <summary>
+        /// This script called in TeamCreateEvent which located in BoardAnimation script.
+        /// </summary>
         public void CreateTeam()
         {
             StartCoroutine(CreatePlayers(FirstTeamSO, _firstPlayers, PlayerPrefab, _initialPosRightTeam));
