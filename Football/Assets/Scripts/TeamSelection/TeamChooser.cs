@@ -1,6 +1,7 @@
 using ScriptableObjectArchitecture;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace FootBall
@@ -17,10 +18,12 @@ namespace FootBall
 
         [SerializeField] private TMP_Text TeamName;
         [SerializeField] private Image TeamLogo;
-        [SerializeField] private int _initialIndex = 0;
+        private int _initialIndex = 0;
 
         public StringVariable ChosenTeamName;
         public StringVariable EnemyTeamName;
+
+        public UnityEvent UniformChangeEvent;
 
 
         private void Awake()
@@ -120,6 +123,9 @@ namespace FootBall
                 PlayerPrefs.SetInt("SecondTeamIndex", _initialIndex);
                 //Debug.Log("SecondTeamName = " + _initialIndex);
             }
+
+            //Debug.Log("11");
+            UniformChangeEvent.Invoke();
         }
 
         /*
